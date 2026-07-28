@@ -1,0 +1,18 @@
+{
+  "name": "BALAI",
+  "short_name": "BALAI",
+  "description": "BALAI products and market services.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070707",
+  "theme_color": "#070707",
+  "icons": [
+    {
+      "src": "./assets/balai-emblem.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

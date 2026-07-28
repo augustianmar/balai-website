@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-label="Toraja">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#171717"/>
+      <stop offset="1" stop-color="#080808"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#723447" stop-opacity=".38"/>
+      <stop offset=".55" stop-color="#723447" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#723447" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#000" flood-opacity=".48"/>
+    </filter>
+  </defs>
+  <rect width="720" height="900" fill="#0a0a0a"/>
+  <circle cx="520" cy="120" r="360" fill="url(#glow)"/>
+  <g filter="url(#shadow)">
+    <path d="M150 116h420l38 92v558l-38 38H150l-38-38V208z" fill="url(#bg)" stroke="#39332e" stroke-width="2"/>
+    <path d="M112 208h496" stroke="#723447" stroke-width="5"/>
+    <circle cx="360" cy="395" r="132" fill="#0d1820" stroke="#b89a61" stroke-width="2"/>
+    <circle cx="360" cy="395" r="105" fill="none" stroke="#b89a61" stroke-opacity=".22" stroke-width="1"/>
+    <path d="M292 435c28-66 48-118 68-153 20 35 40 87 68 153-42-20-94-20-136 0Z" fill="none" stroke="#d5ad58" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M318 421v-58l42-31 42 31v58M339 421v-72M381 421v-72M305 447h110" fill="none" stroke="#d5ad58" stroke-width="5" stroke-linecap="round"/>
+    <text x="360" y="598" fill="#f2ece3" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" text-anchor="middle" letter-spacing="-2">Toraja</text>
+    <text x="360" y="640" fill="#a69c91" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="middle" letter-spacing="4">SULAWESI COFFEE</text>
+    <text x="156" y="746" fill="#723447" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="4">BALAI / 02</text>
+    <text x="564" y="746" fill="#aaa198" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="end" letter-spacing="3">250 G</text>
+  </g>
+</svg>
