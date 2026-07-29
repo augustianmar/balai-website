@@ -1,235 +1,46 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#070707" />
-  <meta name="description" content="BALAI connects Nordic businesses with Southeast Asian markets and brings selected Indonesian products north." />
-  <meta property="og:title" content="BALAI — Nordic clarity. Indonesian soul." />
-  <meta property="og:description" content="Products, market-entry services and commercial representation connecting Nordic and Indonesian markets." />
-  <meta property="og:type" content="website" />
-  <title>BALAI — Products & Market Services</title>
-  <link rel="icon" href="./assets/balai-emblem.svg" type="image/svg+xml" />
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7efe5">
+  <meta name="description" content="BALAI helps Finnish tourism companies enter and grow in Indonesia and Southeast Asia through market strategy, partner development, representation and cultural localisation.">
+  <meta property="og:title" content="BALAI — Finland × Indonesia">
+  <meta property="og:description" content="Southeast Asia market expertise for Finnish and Lapland tourism companies.">
+  <meta property="og:type" content="website">
+  <title>BALAI — Finland × Indonesia Market Consulting</title>
+  <link rel="icon" href="./assets/balai-emblem.svg" type="image/svg+xml">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Caslon+Display&display=swap');
+    :root{--cream:#f7efe5;--peach:#efb49d;--peach-soft:#f6d6c8;--paper:#fffaf4;--ink:#171614;--muted:#746e68;--line:rgba(23,22,20,.16);--green:#30483d;--max:1280px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}body.locked{overflow:hidden}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}button{cursor:pointer}img{display:block;max-width:100%}.container{width:min(var(--max),calc(100% - 48px));margin:auto}.eyebrow{margin:0 0 14px;color:#7c4a36;font-size:11px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}.header{position:sticky;top:0;z-index:50;background:rgba(247,239,229,.93);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}.nav{min-height:82px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px}.logo img{height:44px;width:auto}.nav-links{display:flex;justify-content:center;gap:30px;font-size:13px;font-weight:600;color:#4d4945}.nav-links a:hover{color:#9d563e}.button{min-height:47px;padding:0 21px;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:12px;font-weight:700;transition:.18s ease}.button:hover{transform:translateY(-2px)}.button.dark{background:var(--ink);color:#fff}.button.light{background:var(--paper);border-color:var(--paper)}.button.large{min-height:55px;padding:0 25px}
+    .hero{overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(circle at 86% 12%,rgba(239,180,157,.55),transparent 23rem),var(--cream)}.hero-grid{min-height:calc(100vh - 82px);display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center;padding:76px 0}.hero-copy{position:relative;z-index:2}.hero h1{max-width:900px;margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:clamp(64px,7.5vw,108px);line-height:.94;letter-spacing:-.048em;font-weight:400}.hero h1 em{color:#a65238;font-style:normal}.hero-lead{max-width:690px;margin:29px 0 0;color:#4d4945;font-size:18px;line-height:1.72}.hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:32px}.topic-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:49px}.topic-pills span{padding:10px 18px;border:1px solid var(--ink);border-radius:999px;background:rgba(255,250,244,.44);font-family:"Libre Caslon Display",Georgia,serif;font-size:18px}.portrait-wrap{position:relative;min-height:650px;display:grid;align-items:center}.portrait-card{position:relative;width:86%;margin-left:auto;border-radius:130px 130px 24px 24px;overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:0 28px 70px rgba(69,49,38,.13)}.portrait-card img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;filter:saturate(.9) contrast(.98)}.portrait-caption{padding:19px 22px 22px;background:var(--paper);display:flex;align-items:end;justify-content:space-between;gap:20px}.portrait-caption strong{display:block;font-family:"Libre Caslon Display",Georgia,serif;font-size:24px;font-weight:400}.portrait-caption span{color:var(--muted);font-size:11px;line-height:1.45;text-align:right}.circle-note{position:absolute;left:0;top:68px;width:175px;height:175px;border-radius:50%;background:var(--peach);display:grid;place-items:center;text-align:center;padding:24px;font-family:"Libre Caslon Display",Georgia,serif;font-size:24px;line-height:1.1;box-shadow:0 20px 50px rgba(83,45,30,.13)}.mini-note{position:absolute;left:8px;bottom:75px;width:240px;padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,250,244,.94);box-shadow:0 20px 55px rgba(55,38,29,.12)}.mini-note span{display:block;color:#9a5b43;font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}.mini-note strong{display:block;margin-top:8px;font-size:15px;line-height:1.45}
+    .proofbar{background:var(--paper);border-bottom:1px solid var(--line)}.proof-grid{display:grid;grid-template-columns:repeat(4,1fr)}.proof{min-height:116px;padding:26px;border-right:1px solid var(--line);display:grid;align-content:center}.proof:last-child{border-right:0}.proof span{color:var(--muted);font-size:9px;letter-spacing:.14em;text-transform:uppercase}.proof strong{margin-top:8px;font-size:14px;line-height:1.45}.section{padding:110px 0}.section.paper{background:var(--paper)}.section.peach{background:var(--peach-soft)}.section.dark{background:var(--green);color:#fff}.section-head{display:flex;align-items:end;justify-content:space-between;gap:42px;margin-bottom:44px}.title{max-width:850px;margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:clamp(48px,5.7vw,78px);line-height:.98;letter-spacing:-.04em;font-weight:400}.section-copy{max-width:520px;margin:0;color:var(--muted);font-size:15px;line-height:1.78}.dark .section-copy{color:#ced8d1}
+    .problem-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}.problem-feature{min-height:535px;padding:38px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(155deg,rgba(255,255,255,.5),transparent 45%),var(--peach);display:grid;align-content:space-between}.problem-feature .number{width:72px;height:72px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:"Libre Caslon Display",Georgia,serif;font-size:28px}.problem-feature h2{max-width:610px;margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:clamp(47px,5.2vw,72px);line-height:.98;letter-spacing:-.04em;font-weight:400}.problem-list{border-top:1px solid var(--line)}.problem-row{display:grid;grid-template-columns:55px 1fr;gap:21px;padding:29px 0;border-bottom:1px solid var(--line)}.problem-row span{color:#9d563e;font-size:10px;font-weight:700;letter-spacing:.14em}.problem-row h3{margin:0 0 8px;font-family:"Libre Caslon Display",Georgia,serif;font-size:29px;font-weight:400}.problem-row p{margin:0;color:var(--muted);font-size:13px;line-height:1.68}
+    .services{border-top:1px solid rgba(255,255,255,.25)}.service{display:grid;grid-template-columns:60px .8fr 1fr auto;align-items:center;gap:28px;min-height:166px;border-bottom:1px solid rgba(255,255,255,.25)}.service-num{color:#f2bea8;font-size:10px;font-weight:700;letter-spacing:.16em}.service h3{margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:clamp(29px,3.1vw,42px);line-height:1.04;font-weight:400}.service p{margin:0;color:#ced8d1;font-size:13px;line-height:1.68}.service button{width:49px;height:49px;border:1px solid rgba(255,255,255,.34);border-radius:50%;background:transparent;color:#fff;font-size:19px;transition:.18s}.service:hover button{background:var(--peach);border-color:var(--peach);color:var(--ink);transform:rotate(45deg)}
+    .clients-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.client{min-height:290px;padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--paper);display:grid;align-content:space-between;transition:.18s}.client:hover{transform:translateY(-5px)}.client .label{color:#9d563e;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.client h3{margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:31px;line-height:1.05;font-weight:400}.client p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}
+    .why-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:68px;align-items:start}.quote-card{position:sticky;top:112px;min-height:530px;padding:35px;border:1px solid var(--line);border-radius:28px;background:var(--peach);display:grid;align-content:space-between}.quote-card img{width:88px;height:88px;object-fit:contain}.quote-card blockquote{margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:41px;line-height:1.05;letter-spacing:-.025em}.why h2{margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:clamp(49px,5.8vw,78px);line-height:.98;letter-spacing:-.04em;font-weight:400}.why>p{color:#504b47;font-size:16px;line-height:1.8}.credentials{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}.credential{min-height:160px;padding:20px;border:1px solid var(--line);border-radius:15px;background:rgba(255,250,244,.63)}.credential span{color:#9d563e;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.credential strong{display:block;margin-top:14px}.credential p{margin:8px 0 0;color:var(--muted);font-size:11px;line-height:1.58}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--line)}.step{min-height:285px;padding:25px;background:var(--paper);display:grid;align-content:space-between}.step span{color:#9d563e;font-size:10px;font-weight:700}.step h3{margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:33px;font-weight:400}.step p{margin:0;color:var(--muted);font-size:12px;line-height:1.68}.cta{padding:95px 0;background:var(--peach);border-top:1px solid var(--line)}.cta-grid{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px}.cta h2{max-width:920px;margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:clamp(52px,6.8vw,88px);line-height:.95;letter-spacing:-.045em;font-weight:400}
+    .footer{padding:50px 0 28px;background:#191816;color:#fff}.footer-grid{display:grid;grid-template-columns:1.25fr .75fr .75fr;gap:45px}.footer-logo{height:43px;width:auto}.footer p,.footer a,.footer button{color:#aaa39b;font-size:12px;line-height:1.7}.footer a,.footer button{display:block;margin:9px 0;padding:0;border:0;background:none}.footer h4{margin:0 0 15px}.footer-bottom{display:flex;justify-content:space-between;gap:20px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.13);color:#77716c;font-size:10px}
+    .modal{position:fixed;inset:0;z-index:100;visibility:hidden;opacity:0;padding:20px;background:rgba(26,21,18,.72);backdrop-filter:blur(9px);display:grid;place-items:center;transition:.18s}.modal.open{visibility:visible;opacity:1}.modal-card{width:min(760px,100%);max-height:92vh;overflow:auto;padding:29px;border:1px solid var(--line);border-radius:23px;background:var(--paper);box-shadow:0 35px 100px rgba(0,0,0,.28)}.modal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.modal h2{margin:0;font-family:"Libre Caslon Display",Georgia,serif;font-size:44px;line-height:1;font-weight:400}.close{width:43px;height:43px;border:1px solid var(--line);border-radius:50%;background:transparent;font-size:22px}.form{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:24px}label{display:grid;gap:7px;color:#554f4a;font-size:11px;font-weight:700}label.wide{grid-column:1/-1}input,textarea,select{width:100%;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);padding:13px;outline:none}textarea{min-height:145px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:#9d563e}.form-footer{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:4px}.form-note{max-width:420px;color:var(--muted);font-size:10px;line-height:1.5}
+    @media(max-width:1040px){.nav-links{display:none}.hero-grid{grid-template-columns:1fr}.portrait-wrap{min-height:590px}.problem-grid,.why-grid{grid-template-columns:1fr}.quote-card{position:relative;top:0}.clients-grid{grid-template-columns:1fr 1fr}.service{grid-template-columns:48px 1fr auto}.service p{grid-column:2/3}.process{grid-template-columns:1fr 1fr}}
+    @media(max-width:700px){.container{width:calc(100% - 28px)}.nav{min-height:69px}.logo img{height:35px}.nav .button{min-height:40px;padding:0 14px}.hero-grid{min-height:auto;padding:58px 0}.hero h1{font-size:clamp(56px,17vw,79px)}.hero-lead{font-size:16px}.topic-pills span{font-size:15px}.portrait-wrap{min-height:510px}.portrait-card{width:88%}.circle-note{width:130px;height:130px;font-size:18px;top:40px}.mini-note{width:195px;bottom:35px}.proof-grid{grid-template-columns:1fr 1fr}.proof:nth-child(2){border-right:0}.proof:nth-child(-n+2){border-bottom:1px solid var(--line)}.section{padding:82px 0}.section-head{align-items:flex-start;flex-direction:column}.problem-feature{min-height:430px;padding:28px}.problem-row{grid-template-columns:40px 1fr}.service{grid-template-columns:35px 1fr auto;gap:12px;padding:26px 0;min-height:0}.service p{grid-column:2/4}.clients-grid,.credentials,.process{grid-template-columns:1fr}.quote-card{min-height:430px}.cta-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.footer-bottom{flex-direction:column}.form{grid-template-columns:1fr}label.wide,.form-footer{grid-column:auto}.form-footer{align-items:stretch;flex-direction:column}}
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="#top" aria-label="BALAI home">
-        <img src="./assets/balai-logo.svg" alt="BALAI" />
-      </a>
-
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#shop">Shop</a>
-        <a href="#services">Services</a>
-        <a href="#story">About</a>
-        <a href="#process">How it works</a>
-      </nav>
-
-      <div class="header-actions">
-        <button class="icon-button" type="button" data-open-enquiry aria-label="Contact BALAI">
-          <span data-icon="arrow"></span>
-        </button>
-        <button class="cart-button" type="button" data-open-cart aria-label="Open basket">
-          <span data-icon="cart"></span><span>Basket</span><span class="cart-count" data-cart-count>0</span>
-        </button>
-        <button class="menu-button" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
-          <span data-icon="menu"></span>
-        </button>
-      </div>
-    </div>
-    <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
-      <a href="#shop">Shop</a>
-      <a href="#services">Services</a>
-      <a href="#story">About</a>
-      <a href="#process">How it works</a>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="section-kicker">Nordic × Indonesia</p>
-          <h1>Trade with <span>soul.</span><br />Grow with clarity.</h1>
-          <p class="hero-lead">BALAI connects Nordic businesses with Southeast Asian markets—and introduces selected Indonesian products through a refined northern lens.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#shop">Explore products <span data-icon="arrow"></span></a>
-            <a class="button" href="#services">Explore services</a>
-          </div>
-        </div>
-
-        <div class="hero-art" aria-hidden="true">
-          <div class="vinyl"></div>
-          <div class="vinyl-label"><img src="./assets/balai-emblem.svg" alt="" /></div>
-          <article class="hero-note">
-            <span>Built between markets</span>
-            <strong>Commercially useful. Culturally fluent.</strong>
-            <p>One brand for products, representation and market development.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-strip" aria-label="BALAI capabilities">
-      <div class="container trust-grid">
-        <article class="trust-item"><span>Base</span><strong>Rovaniemi, Finland</strong></article>
-        <article class="trust-item"><span>Markets</span><strong>Nordics & Southeast Asia</strong></article>
-        <article class="trust-item"><span>Languages</span><strong>Finnish, English, Indonesian & Malay</strong></article>
-        <article class="trust-item"><span>Approach</span><strong>Relationships before transactions</strong></article>
-      </div>
-    </section>
-
-    <section class="section" id="shop">
-      <div class="container">
-        <div class="products-head">
-          <div>
-            <p class="section-kicker">BALAI shop</p>
-            <h2 class="section-title">Indonesian origin.<br />Northern presentation.</h2>
-          </div>
-          <p class="section-copy">A launch-ready storefront for selected Indonesian products. The first editable collection is built around specialty coffee.</p>
-        </div>
-        <div class="products-grid" id="productGrid"></div>
-      </div>
-    </section>
-
-    <section class="section services" id="services">
-      <div class="container">
-        <div class="services-head">
-          <div>
-            <p class="section-kicker">Commercial services</p>
-            <h2 class="section-title">Build the right bridge.</h2>
-          </div>
-          <button class="button light" type="button" data-open-enquiry>Start a conversation <span data-icon="arrow"></span></button>
-        </div>
-        <div class="services-list" id="serviceList"></div>
-      </div>
-    </section>
-
-    <section class="section" id="story">
-      <div class="container story-grid">
-        <div class="story-card">
-          <div class="story-rings"></div>
-          <img src="./assets/balai-emblem.svg" alt="BALAI emblem" />
-        </div>
-        <div class="story-content">
-          <p class="section-kicker">Why BALAI</p>
-          <h2>A meeting place between markets.</h2>
-          <p>BALAI is designed around a simple idea: international growth works better when both sides are understood properly. We combine Nordic commercial clarity with lived Southeast Asian cultural fluency.</p>
-          <div class="values">
-            <article class="value"><span>01 / Local understanding</span><strong>More than translation</strong><p>We interpret how offers, expectations and relationships work in each market.</p></article>
-            <article class="value"><span>02 / Commercial discipline</span><strong>Built for action</strong><p>Research leads to outreach, introductions, follow-up and measurable development.</p></article>
-            <article class="value"><span>03 / Direct relationships</span><strong>Fewer unnecessary layers</strong><p>We help companies develop credible connections with the people who matter.</p></article>
-            <article class="value"><span>04 / Long-term value</span><strong>Trust compounds</strong><p>We favour durable partnerships over short-lived transactions.</p></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <div class="container">
-        <p class="section-kicker">How it works</p>
-        <h2 class="section-title">Clear steps. No theatre.</h2>
-        <div class="process-grid">
-          <article class="process-card"><span>01</span><h3>Define</h3><p>Clarify the commercial objective, target customer and realistic market scope.</p></article>
-          <article class="process-card"><span>02</span><h3>Validate</h3><p>Test assumptions against the market, potential partners and operational realities.</p></article>
-          <article class="process-card"><span>03</span><h3>Connect</h3><p>Build relevant relationships and communicate the offer in the right context.</p></article>
-          <article class="process-card"><span>04</span><h3>Develop</h3><p>Follow through with structured representation, sales development and refinement.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta-section">
-      <div class="container">
-        <article class="cta-card">
-          <h2>Bring the right product—or the right business—to the right market.</h2>
-          <div class="cta-actions">
-            <button class="button primary" type="button" data-open-enquiry>Start with BALAI</button>
-            <button class="button" type="button" data-open-cart>View basket <span class="cart-count" data-cart-count>0</span></button>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="./assets/balai-logo.svg" alt="BALAI" />
-          <p>Products, market-entry services and commercial representation connecting Nordic and Indonesian markets.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Explore</h4>
-          <a href="#shop">Shop</a>
-          <a href="#services">Services</a>
-          <a href="#story">About BALAI</a>
-        </div>
-        <div class="footer-column">
-          <h4>Business</h4>
-          <button type="button" data-open-enquiry>Market enquiry</button>
-          <button type="button" data-open-enquiry>Product sourcing</button>
-          <button type="button" data-open-enquiry>Representation</button>
-        </div>
-        <div class="footer-column">
-          <h4>Location</h4>
-          <a href="#top">Rovaniemi, Finland</a>
-          <button type="button" data-open-enquiry>Contact BALAI</button>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span data-year></span> BALAI. All rights reserved.</span>
-        <span>Nordic clarity. Indonesian soul.</span>
-      </div>
-    </div>
-  </footer>
-
-  <div class="drawer-backdrop" id="drawerBackdrop" data-close-cart></div>
-  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping basket">
-    <header class="drawer-header">
-      <h2>Your basket</h2>
-      <button class="drawer-close" type="button" data-close-cart aria-label="Close basket"><span data-icon="close"></span></button>
-    </header>
-    <div class="cart-items" id="cartItems"></div>
-    <footer class="drawer-footer">
-      <div class="cart-total"><span>Estimated total</span><strong id="cartTotal">€0.00</strong></div>
-      <p class="drawer-note">This first version prepares an order enquiry. Connect a payment provider before public launch.</p>
-      <button class="button primary" id="checkoutButton" type="button">Request this order</button>
-    </footer>
-  </aside>
-
-  <section class="modal" id="enquiryModal" aria-hidden="true" aria-label="Send an enquiry">
-    <article class="modal-card">
-      <header class="modal-header">
-        <div><p class="section-kicker">Contact BALAI</p><h2>Start a conversation.</h2></div>
-        <button class="modal-close" type="button" data-close-enquiry aria-label="Close enquiry"><span data-icon="close"></span></button>
-      </header>
-      <form class="enquiry-form" id="enquiryForm">
-        <label>Name<input name="name" required autocomplete="name" /></label>
-        <label>Email<input name="email" type="email" required autocomplete="email" /></label>
-        <label>Company<input name="company" autocomplete="organization" /></label>
-        <label>Subject<select name="subject" id="enquirySubject">
-          <option>Business enquiry</option>
-          <option>Product order request</option>
-          <option>Market-entry project</option>
-          <option>Representation</option>
-          <option>Product sourcing</option>
-        </select></label>
-        <label class="wide">Message<textarea name="message" id="enquiryMessage" required></textarea></label>
-        <div class="form-footer">
-          <span class="form-status" id="formStatus">Your enquiry stays on your device until you send it.</span>
-          <button class="button primary" type="submit">Prepare enquiry</button>
-        </div>
-      </form>
-    </article>
-  </section>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <script src="./config.js"></script>
-  <script src="./app.js"></script>
+<header class="header"><div class="container nav"><a class="logo" href="#top" aria-label="BALAI home"><img src="./assets/balai-logo.svg" alt="BALAI"></a><nav class="nav-links" aria-label="Main navigation"><a href="#services">Services</a><a href="#clients">Who we help</a><a href="#why">Why BALAI</a><a href="#process">Process</a></nav><button class="button dark" data-open-contact>Discuss your market</button></div></header>
+<main>
+<section class="hero" id="top"><div class="container hero-grid"><div class="hero-copy"><p class="eyebrow">Finland × Indonesia × Southeast Asia</p><h1>Your bridge to <em>Indonesian and Southeast Asian markets.</em></h1><p class="hero-lead">BALAI helps Finnish—especially Lapland tourism—companies understand, enter and grow in Indonesia and wider Southeast Asia through market strategy, partner development, representation and cultural expertise.</p><div class="hero-actions"><button class="button dark large" data-open-contact>Discuss your market →</button><a class="button large" href="#services">Explore services</a></div><div class="topic-pills"><span>Tourism</span><span>Market entry</span><span>Partner development</span></div></div><div class="portrait-wrap"><div class="circle-note">Nordic clarity.<br>SEA fluency.</div><article class="portrait-card"><img src="./assets/founder.jpg" alt="BALAI founder in Helsinki"><div class="portrait-caption"><strong>Augustian Marcellus</strong><span>Founder of BALAI<br>Rovaniemi, Finland</span></div></article><aside class="mini-note"><span>Built between markets</span><strong>Lived Southeast Asian understanding combined with direct Lapland tourism experience.</strong></aside></div></div></section>
+<section class="proofbar"><div class="container proof-grid"><article class="proof"><span>Base</span><strong>Rovaniemi, at the centre of Lapland tourism</strong></article><article class="proof"><span>Primary market</span><strong>Indonesia</strong></article><article class="proof"><span>Wider reach</span><strong>Malaysia, Singapore and Southeast Asia</strong></article><article class="proof"><span>Languages</span><strong>Finnish, English, Indonesian and Malay</strong></article></div></section>
+<section class="section paper"><div class="container problem-grid"><article class="problem-feature"><div class="number">01</div><h2>Interest in Lapland does not automatically become business.</h2></article><div class="problem-list"><article class="problem-row"><span>01</span><div><h3>The market is oversimplified</h3><p>Indonesia, Malaysia and Singapore differ in channels, travel behaviour, purchasing power and expectations. Generic “Asia marketing” is rarely enough.</p></div></article><article class="problem-row"><span>02</span><div><h3>The right partners are unclear</h3><p>Many companies know the region is promising but do not know which agencies, operators, communities or decision-makers deserve attention.</p></div></article><article class="problem-row"><span>03</span><div><h3>The offer is not localised</h3><p>Strong Finnish products can still be difficult to sell when packages, communication and service details do not fit the buyer.</p></div></article><article class="problem-row"><span>04</span><div><h3>Follow-up disappears</h3><p>Trade fairs and introductions create little value without structured follow-up, relationship management and ongoing market presence.</p></div></article></div></div></section>
+<section class="section dark" id="services"><div class="container"><div class="section-head"><div><p class="eyebrow" style="color:#f2bea8">BALAI services</p><h2 class="title">From market question to market presence.</h2></div><p class="section-copy">Each engagement is shaped around the company’s real stage, resources and commercial objective—not a generic internationalisation package.</p></div><div class="services"><article class="service"><span class="service-num">01</span><h3>Market Opportunity Assessment</h3><p>Evaluate demand, customer segments, market fit, barriers, competition and the strongest route forward before committing major resources.</p><button data-open-contact>↗</button></article><article class="service"><span class="service-num">02</span><h3>Market Entry & Partner Development</h3><p>Identify relevant travel-trade partners, qualify opportunities, shape the offer and begin targeted outreach in Indonesia and wider Southeast Asia.</p><button data-open-contact>↗</button></article><article class="service"><span class="service-num">03</span><h3>SEA Market Representation</h3><p>Provide ongoing partner communication, relationship management, commercial follow-up and continuity when a permanent local presence is not practical.</p><button data-open-contact>↗</button></article><article class="service"><span class="service-num">04</span><h3>Cultural & Commercial Localisation</h3><p>Adapt packages, messaging, service details, Muslim-traveller considerations and sales material so the offer fits the target market.</p><button data-open-contact>↗</button></article><article class="service"><span class="service-num">05</span><h3>Trade Fair & Sales Support</h3><p>Prepare market-specific materials, support meetings, represent the company and convert introductions into an organised post-event sales pipeline.</p><button data-open-contact>↗</button></article></div></div></section>
+<section class="section peach" id="clients"><div class="container"><div class="section-head"><div><p class="eyebrow">Who BALAI helps</p><h2 class="title">Built for Lapland companies ready to look outward.</h2></div><p class="section-copy">The strongest fit is a small or mid-sized company with a strong product, international ambition and a need for practical market access.</p></div><div class="clients-grid"><article class="client"><span class="label">Accommodation</span><h3>Hotels, resorts, cabins and premium stays</h3><p>Position the property for Southeast Asian travellers and build stronger distribution and partner relationships.</p></article><article class="client"><span class="label">Tour operations</span><h3>DMCs, guides and activity companies</h3><p>Package experiences in a way that fits partner needs, group structures and traveller expectations.</p></article><article class="client"><span class="label">Specialist services</span><h3>Food, transport and premium local providers</h3><p>Make supporting services more visible, understandable and commercially relevant to incoming markets.</p></article><article class="client"><span class="label">Destination growth</span><h3>Tourism networks and development projects</h3><p>Bring Southeast Asian market perspective into strategy, campaigns, partnerships and ecosystem development.</p></article></div></div></section>
+<section class="section paper" id="why"><div class="container why-grid"><aside class="quote-card"><img src="./assets/balai-emblem.svg" alt="BALAI emblem"><blockquote>“Understanding both sides of the relationship changes the quality of the work.”</blockquote></aside><div class="why"><p class="eyebrow">Why BALAI</p><h2>Not an outside agency studying the market from a distance.</h2><p>BALAI combines lived Southeast Asian understanding with direct experience of Finland and Lapland tourism. The value is not only language. It is the ability to interpret how Finnish companies operate, how Southeast Asian partners think and what must happen commercially between them.</p><div class="credentials"><article class="credential"><span>Lived market context</span><strong>Raised across Southeast Asia</strong><p>First-hand cultural understanding shaped by life in Indonesia, the Philippines and Vietnam.</p></article><article class="credential"><span>Local operating knowledge</span><strong>Based in Rovaniemi</strong><p>Direct understanding of Lapland tourism companies, seasonality, operations and destination realities.</p></article><article class="credential"><span>Language access</span><strong>Indonesian and Malay</strong><p>More direct communication and stronger interpretation of nuance, expectations and relationship-building.</p></article><article class="credential"><span>Commercial focus</span><strong>Built around measurable progress</strong><p>Qualified contacts, partner discussions, follow-up, market learning and business development.</p></article></div></div></div></section>
+<section class="section paper" id="process" style="padding-top:0"><div class="container"><div class="section-head"><div><p class="eyebrow">How it works</p><h2 class="title">Clear steps. No theatre.</h2></div><p class="section-copy">BALAI starts with the company’s real commercial situation and builds only what is useful.</p></div><div class="process"><article class="step"><span>01</span><h3>Diagnose</h3><p>Clarify the offer, target customer, market objective and available resources.</p></article><article class="step"><span>02</span><h3>Position</h3><p>Shape the product, message and commercial case for the chosen market and partner type.</p></article><article class="step"><span>03</span><h3>Connect</h3><p>Identify and approach relevant partners with the right context, material and expectations.</p></article><article class="step"><span>04</span><h3>Develop</h3><p>Follow through, manage relationships and strengthen market presence over time.</p></article></div></div></section>
+<section class="cta"><div class="container cta-grid"><h2>Make Southeast Asia a real market—not just an idea.</h2><button class="button dark large" data-open-contact>Discuss your market →</button></div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid"><div><img class="footer-logo" src="./assets/balai-logo.svg" alt="BALAI"><p>Helping Finnish tourism companies build practical commercial relationships in Indonesia and Southeast Asia.</p></div><div><h4>Explore</h4><a href="#services">Services</a><a href="#clients">Who we help</a><a href="#why">Why BALAI</a><a href="#process">Process</a></div><div><h4>Contact</h4><p>Rovaniemi, Finland</p><button data-open-contact>Discuss your market</button></div></div><div class="footer-bottom"><span>© 2026 BALAI. All rights reserved.</span><span>Finland × Indonesia × Southeast Asia</span></div></div></footer>
+<section class="modal" id="contactModal" aria-hidden="true"><article class="modal-card"><div class="modal-head"><div><p class="eyebrow">Start a conversation</p><h2>Tell BALAI where you want to grow.</h2></div><button class="close" data-close-contact aria-label="Close">×</button></div><form class="form" id="contactForm"><label>Name<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label><label>Company<input name="company" autocomplete="organization"></label><label>Primary interest<select name="subject"><option>Market opportunity assessment</option><option>Indonesia market entry</option><option>Southeast Asia partner development</option><option>Market representation</option><option>Cultural and commercial localisation</option><option>Trade fair and sales support</option></select></label><label class="wide">What are you trying to achieve?<textarea name="message" required></textarea></label><div class="form-footer"><span class="form-note">This prepares an email in your own email application. Replace the temporary email before public launch.</span><button class="button dark" type="submit">Prepare enquiry →</button></div></form></article></section>
+<script>const BALAI_EMAIL="replace-me@yourdomain.com";const modal=document.querySelector("#contactModal");const form=document.querySelector("#contactForm");function openModal(){modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.classList.add("locked")}function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.classList.remove("locked")}document.querySelectorAll("[data-open-contact]").forEach(b=>b.addEventListener("click",openModal));document.querySelector("[data-close-contact]").addEventListener("click",closeModal);modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});form.addEventListener("submit",e=>{e.preventDefault();const d=new FormData(form),s=d.get("subject"),body=`Name: ${d.get("name")}\nEmail: ${d.get("email")}\nCompany: ${d.get("company")||"Not provided"}\n\nPrimary interest: ${s}\n\n${d.get("message")}`;window.location.href=`mailto:${BALAI_EMAIL}?subject=${encodeURIComponent("BALAI enquiry — "+s)}&body=${encodeURIComponent(body)}`});</script>
 </body>
 </html>
