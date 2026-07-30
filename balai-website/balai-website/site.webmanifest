@@ -1,0 +1,9 @@
+{
+  "name": "BALAI",
+  "short_name": "BALAI",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5ecdf",
+  "theme_color": "#f5ecdf",
+  "icons": []
+}
