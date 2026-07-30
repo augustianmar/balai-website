@@ -1,9 +1,9 @@
 {
-  "name": "BALAI",
+  "name": "BALAI — Finland & Southeast Asia Tourism Market Development",
   "short_name": "BALAI",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#f5ecdf",
   "theme_color": "#f5ecdf",
-  "icons": []
+  "description": "Two-way tourism market development between Finland, Indonesia and Southeast Asia."
 }
