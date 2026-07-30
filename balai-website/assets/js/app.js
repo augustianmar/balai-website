@@ -7,8 +7,16 @@
   const toast = document.querySelector('[data-toast]');
   const config = window.BALAI_CONFIG || {};
   const body = document.body;
+  const progress = document.querySelector('[data-scroll-progress]');
+  let lastFocused = null;
 
-  const onScroll = () => header?.classList.toggle('is-scrolled', window.scrollY > 18);
+  const onScroll = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 18);
+    if (progress) {
+      const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      progress.style.transform = `scaleX(${Math.min(window.scrollY / max, 1)})`;
+    }
+  };
   onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
 
   const showToast = (message) => {
@@ -34,6 +42,7 @@
 
   const openModal = (direction) => {
     closeMenu();
+    lastFocused = document.activeElement;
     modal?.classList.add('is-open');
     modal?.setAttribute('aria-hidden','false');
     body.classList.add('modal-open');
@@ -44,10 +53,20 @@
     modal?.classList.remove('is-open');
     modal?.setAttribute('aria-hidden','true');
     body.classList.remove('modal-open');
+    lastFocused?.focus?.();
   };
   document.querySelectorAll('[data-open-contact]').forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset.direction)));
   document.querySelectorAll('[data-close-contact]').forEach(btn => btn.addEventListener('click', closeModal));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeMenu(); } });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeModal(); closeMenu(); }
+    if (e.key === 'Tab' && modal?.classList.contains('is-open')) {
+      const focusable = [...modal.querySelectorAll('button,input,select,textarea,a[href]')].filter(el => !el.disabled && el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
 
   const reveal = new IntersectionObserver(entries => entries.forEach(entry => {
     if (entry.isIntersecting) { entry.target.classList.add('is-visible'); reveal.unobserve(entry.target); }
@@ -59,7 +78,11 @@
   const activeObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      navLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === '#' + entry.target.id));
+      navLinks.forEach(link => {
+        const active = link.getAttribute('href') === '#' + entry.target.id;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current','location'); else link.removeAttribute('aria-current');
+      });
     });
   }, {rootMargin:'-35% 0px -55%'});
   sections.forEach(section => activeObserver.observe(section));
@@ -77,8 +100,9 @@
         if (!response.ok) throw new Error('Form endpoint failed');
         form.reset(); closeModal(); showToast(body.dataset.formSuccess);
       } else if (email) {
-        const subject = `BALAI enquiry — ${data.get('direction')}`;
-        const message = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company') || '-'}\nDirection: ${data.get('direction')}\n\n${data.get('message')}`;
+        const direction = form.elements.direction.options[form.elements.direction.selectedIndex]?.text || data.get('direction');
+        const subject = `BALAI enquiry — ${direction}`;
+        const message = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company') || '-'}\nDirection: ${direction}\n\n${data.get('message')}`;
         window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
       } else {
         showToast(body.dataset.formMissing);
