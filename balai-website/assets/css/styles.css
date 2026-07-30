@@ -36,3 +36,29 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1000;o
 .button:active,.circle-action:active,.direction-cta:active{transform:translateY(0) scale(.985)}
 .modal-card{overscroll-behavior:contain}
 @media(max-width:760px){.direction-card{min-height:570px}.direction-cta{margin-top:18px}.hero-marquee{height:44px}.hero-marquee div{padding-top:12px}}
+
+
+/* BALAI Premium V6.2 — final editorial refinement */
+html{scrollbar-gutter:stable;font-kerning:normal;text-rendering:optimizeLegibility}
+main section[id]{scroll-margin-top:104px}
+button,.button{white-space:nowrap}
+.section-heading h2,.hero-copy h1,.problem-statement h2,.about-copy h2,.final-cta h2,.direction-card h3{text-wrap:balance}
+.section-heading>p,.hero-lead,.about-copy>p,.direction-card>p,.problem-item p,.service-main p,.client-sides p{text-wrap:pretty}
+.brand img{width:138px;height:66px}
+.about-grid{grid-template-columns:minmax(390px,.78fr) minmax(0,1.22fr);gap:76px;align-items:start}
+.about-signature{position:sticky;top:118px;min-height:455px;padding:28px 30px 30px;border:1px solid rgba(23,23,21,.13);border-radius:26px;overflow:hidden;background:linear-gradient(145deg,#efb097 0%,#efb49d 52%,#f3c1ad 100%);box-shadow:0 24px 64px rgba(80,48,35,.10);display:flex;flex-direction:column;isolation:isolate}
+.about-signature:before{content:"";position:absolute;width:420px;height:420px;right:-230px;top:-255px;border:1px solid rgba(23,23,21,.08);border-radius:50%;z-index:-1}
+.about-signature:after{content:"";position:absolute;width:250px;height:250px;left:-160px;bottom:-145px;border:1px solid rgba(23,23,21,.07);border-radius:50%;z-index:-1}
+.about-signature-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:18px;border-bottom:1px solid rgba(23,23,21,.16)}
+.about-signature-top span{font-size:8px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#633c2f}
+.about-signature-brand{display:grid;justify-items:center;text-align:center;margin:auto 0 38px}
+.about-signature-logo{width:min(240px,72%);height:auto;max-height:176px;object-fit:contain;filter:none}
+.about-signature-brand p{max-width:285px;margin:18px 0 0;font:400 29px/1.02 var(--serif);letter-spacing:-.025em;color:#241c18}
+.about-signature-route{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:15px;padding:18px 0;border-top:1px solid rgba(23,23,21,.16);border-bottom:1px solid rgba(23,23,21,.16)}
+.route-place{display:grid;gap:3px}.route-place--right{text-align:right}.route-place strong{font-size:10px;letter-spacing:.16em}.route-place small{font-size:7px;font-weight:700;letter-spacing:.16em;color:#754b3d}
+.route-connection{display:flex;align-items:center;gap:8px}.route-connection i{display:block;width:25px;height:1px;background:rgba(23,23,21,.35)}.route-connection b{font:400 23px/1 var(--serif)}
+.about-signature-note{max-width:330px;margin:18px 0 0;color:#573d33;font-size:10px;font-weight:600;line-height:1.55;letter-spacing:.035em}
+.about-copy{padding-top:4px}.about-copy>p{max-width:790px}.facts-grid{margin-top:38px}.fact{min-height:152px;padding:23px;background:linear-gradient(145deg,rgba(245,236,223,.86),rgba(255,250,243,.66))}.fact strong{font-size:15px}
+@media(hover:hover){.about-signature{transition:transform .3s ease,box-shadow .3s ease}.about-signature:hover{transform:translateY(-3px);box-shadow:0 30px 78px rgba(80,48,35,.13)}}
+@media(max-width:1100px){main section[id]{scroll-margin-top:91px}.about-grid{grid-template-columns:1fr;gap:52px}.about-signature{position:relative;top:auto;min-height:420px;max-width:780px}.about-signature-brand{margin:42px 0}.about-signature-logo{width:min(255px,55%)}}
+@media(max-width:760px){main section[id]{scroll-margin-top:78px}.brand img{width:103px;height:52px}.about-signature{min-height:390px;padding:23px;border-radius:22px}.about-signature-top{gap:10px}.about-signature-top span:last-child{text-align:right}.about-signature-brand{margin:36px 0 30px}.about-signature-logo{width:min(220px,66%)}.about-signature-brand p{font-size:26px}.about-signature-route{gap:8px}.route-connection{gap:5px}.route-connection i{width:13px}.route-place strong{font-size:8px}.route-place small{font-size:6px}.about-signature-note{font-size:9px}.fact{min-height:132px}button,.button{white-space:normal}}
