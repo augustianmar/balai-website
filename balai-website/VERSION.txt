@@ -1,4 +1,4 @@
-BALAI Premium V6.4 Final
-Direct two-way tourism market access, full six-service portfolio and 24 multilingual service-detail pages.
+BALAI Premium V6.5 Hero Refinement
+Above-the-fold desktop optimisation, compact corridor panel and responsive cross-language polish.
 Languages: English, Finnish, Swedish and Indonesian.
 Built: 2026-07-30

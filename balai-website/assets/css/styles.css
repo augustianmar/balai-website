@@ -173,3 +173,59 @@ body:before{content:"";position:fixed;inset:0;z-index:1000;pointer-events:none;o
 .signal-map--04 .signal-core{background:var(--sage)}.signal-map--05 .signal-core{border-radius:24px}.signal-map--06:before{border-radius:22% 78% 64% 36%/44% 36% 64% 56%}
 .service-signal>p{margin-top:16px}
 @media(max-width:760px){.signal-map{width:min(360px,100%)}.signal-core{width:112px;height:112px}.signal-core strong{font-size:53px}.signal-label{min-width:86px;padding:9px 10px;font-size:7px}}
+
+/* BALAI Premium V6.5 — above-the-fold hero refinement */
+@media(min-width:1101px){
+  .hero{min-height:100svh;padding-top:126px}
+  .hero-grid{grid-template-columns:minmax(0,1.14fr) minmax(440px,.86fr);gap:54px;padding-bottom:48px}
+  .hero-copy h1{max-width:900px;font-size:clamp(64px,6.45vw,98px);line-height:.9}
+  .hero-lead{max-width:720px;margin-top:24px;font-size:17px;line-height:1.64}
+  .hero-actions{margin-top:26px}
+  .hero-facts{margin-top:32px;padding-top:17px}
+  .corridor-card{min-height:585px;padding:30px}
+  .corridor-logo{width:165px;height:135px;margin:32px auto 10px}
+  .corridor-card h2{font-size:clamp(36px,3.35vw,49px)}
+  .corridor-route{margin:auto 0 18px}
+  .corridor-markets{padding-top:18px}
+  .corridor-card>p{margin-top:18px}
+}
+@media(min-width:1101px) and (max-height:900px){
+  html{scroll-padding-top:90px}
+  .header-inner{height:80px}
+  .brand img{width:132px;height:60px}
+  .hero{padding-top:104px}
+  .hero-grid{grid-template-columns:minmax(0,1.16fr) minmax(420px,.84fr);gap:46px;padding-bottom:34px}
+  .hero-copy h1{max-width:900px;font-size:clamp(60px,5.95vw,88px)}
+  .eyebrow{margin-bottom:12px}
+  .hero-lead{max-width:700px;margin-top:20px;font-size:16px;line-height:1.58}
+  .hero-actions{margin-top:22px}
+  .hero-facts{margin-top:24px;padding-top:14px}
+  .corridor-card{min-height:520px;padding:27px;border-radius:27px}
+  .corridor-top{padding-bottom:14px}
+  .corridor-logo{width:135px;height:108px;margin:22px auto 6px}
+  .corridor-card h2{max-width:460px;margin-top:6px;font-size:clamp(34px,3vw,43px)}
+  .corridor-route{margin:auto 0 13px}
+  .corridor-route i{width:78px}
+  .corridor-markets{padding-top:14px}
+  .corridor-card>p{margin-top:14px;font-size:8px}
+  .hero-marquee{height:44px}
+  .hero-marquee div{padding:12px 0}
+}
+@media(min-width:1101px) and (max-height:760px){
+  .hero{padding-top:96px}
+  .hero-grid{padding-bottom:28px}
+  .hero-facts{display:none}
+  .corridor-card{min-height:490px}
+}
+@media(max-width:760px){
+  .hero-copy h1{font-size:clamp(48px,14.5vw,68px)}
+  .hero-lead{margin-top:22px;line-height:1.62}
+  .hero-actions{margin-top:25px}
+  .hero-facts{margin-top:30px;padding-top:17px}
+  .corridor-card{min-height:485px}
+  .corridor-logo{width:130px;height:105px;margin-top:26px}
+  .corridor-card h2{font-size:35px}
+}
+
+/* Let the refined hero end naturally so the next section can enter the first viewport. */
+@media(min-width:1101px){.hero{min-height:auto}}
