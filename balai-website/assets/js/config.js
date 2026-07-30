@@ -1,4 +1,5 @@
 window.BALAI_CONFIG = {
   email: "",
-  formEndpoint: ""
+  formEndpoint: "",
+  whatsappNumber: ""
 };

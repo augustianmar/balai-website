@@ -267,3 +267,24 @@ body:before{content:"";position:fixed;inset:0;z-index:1000;pointer-events:none;o
   .signal-label{min-width:92px;padding:9px 11px;font-size:9px}
   .footer-bottom{font-size:10px}
 }
+
+
+/* BALAI Premium V6.7 — footer ownership, legal preview and WhatsApp visual shell */
+.footer-bottom{display:grid;grid-template-columns:minmax(0,1.35fr) auto minmax(0,1fr);align-items:center;gap:28px}
+.footer-credit{max-width:620px}.footer-corridor{text-align:right}
+.footer-legal{display:flex;align-items:center;justify-content:center;gap:10px;white-space:nowrap}
+.footer-legal button{border:0;padding:4px 0;background:transparent;color:#b5afa9;font-size:10.5px;line-height:1.5;cursor:pointer;transition:color .2s ease}
+.footer-legal button:hover,.footer-legal button:focus-visible{color:#fff}.footer-legal>span{color:#77726d}
+.whatsapp-float{position:fixed;right:max(22px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom));z-index:75;min-height:56px;padding:7px 19px 7px 8px;border:1px solid rgba(255,255,255,.14);border-radius:999px;display:flex;align-items:center;gap:11px;background:var(--ink);color:#fff;box-shadow:0 18px 55px rgba(23,23,21,.24);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(16px);transition:opacity .28s ease,transform .28s ease,visibility .28s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.whatsapp-float.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:none}.whatsapp-float:hover{transform:translateY(-3px)}
+.whatsapp-float.is-over-footer{background:var(--paper);color:var(--ink);border-color:var(--line);box-shadow:0 18px 55px rgba(0,0,0,.25)}
+.whatsapp-icon{width:38px;height:38px;display:grid;place-items:center;flex:none}.whatsapp-icon svg{width:32px;height:32px;display:block}
+.whatsapp-label{font-size:11px;font-weight:700;white-space:nowrap}body.modal-open .whatsapp-float{opacity:0;visibility:hidden;pointer-events:none}
+.legal-modal{position:fixed;inset:0;z-index:210;visibility:hidden;opacity:0;transition:.22s ease}.legal-modal.is-open{visibility:visible;opacity:1}
+.legal-card{position:relative;width:min(720px,calc(100% - 30px));max-height:88vh;overflow:auto;margin:6vh auto;padding:42px;border:1px solid var(--line);border-radius:25px;background:var(--paper);box-shadow:0 40px 120px rgba(0,0,0,.32)}
+.legal-close{position:absolute;top:19px;right:19px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font-size:22px}
+.legal-panel h2{max-width:600px;margin:0 0 25px;font:400 clamp(48px,6vw,72px)/.98 var(--serif);letter-spacing:-.045em}
+.legal-panel>p{max-width:610px;margin:0 0 18px;color:var(--muted);font-size:15px;line-height:1.78}
+.legal-panel small{display:block;margin-top:28px;padding:17px 19px;border:1px solid var(--line);border-radius:13px;background:var(--cream);color:#765548;font-size:11px;line-height:1.65}
+@media(max-width:900px){.footer-bottom{grid-template-columns:1fr;align-items:start;gap:14px}.footer-legal{justify-content:flex-start}.footer-corridor{text-align:left}}
+@media(max-width:760px){.whatsapp-float{width:56px;min-height:56px;padding:0;justify-content:center;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom))}.whatsapp-label{display:none}.legal-card{margin:3vh auto;padding:34px 23px 25px}.legal-panel h2{padding-right:42px;font-size:48px}}

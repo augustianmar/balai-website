@@ -1,5 +1,7 @@
-BALAI Premium V6.6 Final Polish
-Design-system, multilingual, accessibility, SEO and performance refinement.
+BALAI Premium V6.7 Contact & Legal Visual Shell
+Footer ownership line, multilingual legal selectors and premium floating WhatsApp control.
+WhatsApp remains safely unconnected until a public business number is supplied.
+Legal panels are explicitly previews until official business and contact details are confirmed.
 Logo colour preserved exactly as supplied.
 Languages: English, Finnish, Swedish and Indonesian.
 Built: 2026-07-30

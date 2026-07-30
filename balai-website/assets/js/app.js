@@ -5,6 +5,10 @@
   const modal = document.querySelector('[data-contact-modal]');
   const form = document.querySelector('[data-contact-form]');
   const toast = document.querySelector('[data-toast]');
+  const legalModal = document.querySelector('[data-legal-modal]');
+  const whatsappButton = document.querySelector('[data-whatsapp-contact]');
+  const siteFooter = document.querySelector('.site-footer');
+  let legalLastFocused = null;
   const config = window.BALAI_CONFIG || {};
   const body = document.body;
   const progress = document.querySelector('[data-scroll-progress]');
@@ -12,6 +16,7 @@
 
   const onScroll = () => {
     header?.classList.toggle('is-scrolled', window.scrollY > 18);
+    whatsappButton?.classList.toggle('is-visible', window.scrollY > 160);
     if (progress) {
       const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
       progress.style.transform = `scaleX(${Math.min(window.scrollY / max, 1)})`;
@@ -70,8 +75,61 @@
   document.querySelectorAll('[data-open-contact]').forEach(btn => btn.addEventListener('click', () => openModal(btn)));
   document.querySelectorAll('[data-close-contact]').forEach(btn => btn.addEventListener('click', closeModal));
 
+  const openLegal = (type, trigger) => {
+    if (!legalModal) return;
+    legalLastFocused = trigger || document.activeElement;
+    legalModal.querySelectorAll('[data-legal-panel]').forEach(panel => {
+      panel.hidden = panel.dataset.legalPanel !== type;
+    });
+    legalModal.classList.add('is-open');
+    legalModal.setAttribute('aria-hidden','false');
+    body.classList.add('modal-open');
+    setTimeout(() => legalModal.querySelector('[data-close-legal]')?.focus(), 80);
+  };
+
+  const closeLegal = () => {
+    if (!legalModal?.classList.contains('is-open')) return;
+    legalModal.classList.remove('is-open');
+    legalModal.setAttribute('aria-hidden','true');
+    body.classList.remove('modal-open');
+    legalLastFocused?.focus?.();
+  };
+
+  document.querySelectorAll('[data-open-legal]').forEach(btn => {
+    btn.addEventListener('click', () => openLegal(btn.dataset.openLegal, btn));
+  });
+  document.querySelectorAll('[data-close-legal]').forEach(btn => btn.addEventListener('click', closeLegal));
+
+  const whatsappNumber = String(config.whatsappNumber || '').replace(/\D/g,'');
+  whatsappButton?.addEventListener('click', () => {
+    if (!whatsappNumber) {
+      showToast(body.dataset.whatsappMissing);
+      return;
+    }
+    const message = whatsappButton.dataset.whatsappMessage || '';
+    const url = `https://wa.me/${whatsappNumber}${message ? `?text=${encodeURIComponent(message)}` : ''}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+
+  if ('IntersectionObserver' in window && siteFooter && whatsappButton) {
+    const footerObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => whatsappButton.classList.toggle('is-over-footer', entry.isIntersecting));
+    }, {threshold:.05});
+    footerObserver.observe(siteFooter);
+  }
+
+
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { closeModal(); closeMenu(); }
+    if (event.key === 'Escape') { closeLegal(); closeModal(); closeMenu(); }
+
+    if (event.key === 'Tab' && legalModal?.classList.contains('is-open')) {
+      const focusable = [...legalModal.querySelectorAll('button,a[href]')].filter(el => !el.disabled && el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+
     if (event.key === 'Tab' && modal?.classList.contains('is-open')) {
       const focusable = [...modal.querySelectorAll('button,input,select,textarea,a[href]')].filter(el => !el.disabled && el.offsetParent !== null);
       if (!focusable.length) return;
