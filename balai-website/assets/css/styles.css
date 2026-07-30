@@ -229,3 +229,41 @@ body:before{content:"";position:fixed;inset:0;z-index:1000;pointer-events:none;o
 
 /* Let the refined hero end naturally so the next section can enter the first viewport. */
 @media(min-width:1101px){.hero{min-height:auto}}
+
+/* BALAI Premium V6.6 — final design-system, accessibility and multilingual polish */
+.eyebrow{font-size:10.5px}
+.corridor-top{font-size:10.5px;line-height:1.4}
+.corridor-markets strong{font-size:11.5px}
+.corridor-markets span{font-size:11px;line-height:1.45}
+.corridor-card>p{font-size:10.5px;line-height:1.5}
+.direction-top span{font-size:10.5px;line-height:1.45}
+.service-index{font-size:10.5px}
+.service-meta{font-size:10.5px;line-height:1.45}
+.service-link{font-size:11px}
+.delivery-stage>span,.step>span,.client-sides article>span{font-size:10.5px}
+.fact span{font-size:10.5px;line-height:1.45}
+.client-sides small{font-size:11px}
+.footer-grid p,.footer-grid a,.footer-grid button{color:#b5afa9;font-size:12.5px}
+.footer-grid>div>span{color:#aaa49e;font-size:10.5px}
+.footer-bottom{color:#aaa49e;font-size:10.5px;line-height:1.5}
+.signal-top{font-size:10.5px;line-height:1.4}
+.signal-core small{font-size:9.5px}
+.signal-label{min-width:112px;padding:11px 14px;font-size:10px;line-height:1.35;letter-spacing:.1em}
+.mobile-language-row{display:none}
+
+@media(max-width:420px){
+  .header-actions .language-switcher{display:none}
+  .mobile-language-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .mobile-language-row>span{color:var(--muted);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .mobile-language-links{display:flex;align-items:center;gap:8px}
+  .mobile-panel .mobile-language-links a{width:38px;height:38px;padding:0;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;background:var(--paper);font:700 10px/1 var(--sans)}
+  .mobile-panel .mobile-language-links a.is-active{background:var(--ink);color:#fff;border-color:var(--ink)}
+}
+
+@media(max-width:760px){
+  .corridor-top{font-size:9.5px}
+  .corridor-markets span{font-size:10px}
+  .corridor-card>p{font-size:9.5px}
+  .signal-label{min-width:92px;padding:9px 11px;font-size:9px}
+  .footer-bottom{font-size:10px}
+}

@@ -1,4 +1,5 @@
-BALAI Premium V6.5 Hero Refinement
-Above-the-fold desktop optimisation, compact corridor panel and responsive cross-language polish.
+BALAI Premium V6.6 Final Polish
+Design-system, multilingual, accessibility, SEO and performance refinement.
+Logo colour preserved exactly as supplied.
 Languages: English, Finnish, Swedish and Indonesian.
 Built: 2026-07-30

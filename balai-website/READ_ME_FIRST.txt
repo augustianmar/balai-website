@@ -1,10 +1,14 @@
-BALAI PREMIUM V6.5 — SMALL HERO PATCH
+BALAI PREMIUM V6.6 — FINAL POLISH UPDATE
 
-Copy the following directly into your existing published balai-website folder:
+1. Open the existing inner balai-website folder used by GitHub Pages.
+2. Copy every file and folder from this package directly into that folder.
+3. Choose Replace all when asked.
+4. Commit to main and Push origin in GitHub Desktop.
+5. Wait for GitHub Pages to deploy, then refresh with Ctrl + F5.
 
-assets/
-VERSION.txt
-
-Choose Replace all, then Commit to main and Push origin.
-
-Do not copy the enclosing BALAI_V6_5_PATCH folder into the repository.
+IMPORTANT
+- Do not copy the enclosing download folder into balai-website.
+- Keep all folder and file names unchanged.
+- The BALAI logo colour has not been changed.
+- The form still requires a confirmed business email or form endpoint in assets/js/config.js.
+- A custom domain and genuine commercial proof require real details or permission and are not fabricated.

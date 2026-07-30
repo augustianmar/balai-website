@@ -1,12 +1,16 @@
-BALAI PREMIUM V6.4 — INSTALLATION
+BALAI PREMIUM V6.6 — INSTALLATION
 
-1. Open the existing inner balai-website folder used by GitHub Pages.
-2. Copy every file and folder from this package directly into that folder.
-3. Choose Replace all when asked.
-4. Commit to main and Push origin in GitHub Desktop.
-5. Wait for GitHub Pages to deploy, then refresh the website with Ctrl + F5.
+1. Open GitHub Desktop > Repository > Show in Explorer.
+2. Open the existing inner folder named balai-website that contains index.html.
+3. Extract the update ZIP and open the extracted folder.
+4. Select EVERYTHING inside the extracted folder.
+5. Copy it directly into the existing inner balai-website folder.
+6. Choose Replace / Merge all when Windows asks.
+7. Commit to main and Push origin.
+8. Wait for GitHub Pages to deploy, then refresh with Ctrl + F5.
 
-IMPORTANT
-- Do not copy the enclosing download folder into balai-website.
-- Keep the folder names and file names unchanged.
-- The contact form remains intentionally disconnected until a confirmed BALAI email or form endpoint is added to assets/js/config.js.
+DO NOT copy the extracted enclosing folder itself into the repository.
+The correct published file remains balai-website/index.html.
+
+The logo colour is unchanged.
+The contact form still needs a confirmed business email or form endpoint in assets/js/config.js.
