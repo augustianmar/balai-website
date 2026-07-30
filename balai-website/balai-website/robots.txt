@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://augustianmar.github.io/balai-website/balai-website/sitemap.xml
