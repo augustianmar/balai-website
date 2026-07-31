@@ -1,214 +1,199 @@
-/* BALAI Premium V7.1 — expanding standalone flag selector */
+/* BALAI Premium V7.2 — compact standalone flag dropdown */
 
-.language-switcher.language-switcher--flag-expand {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  flex: 0 0 44px;
-  z-index: 135;
+/* Fully reset the original pill selector so the site CSS cannot enlarge it. */
+.language-switcher.balai-language-selector {
+  all: unset;
+  position: relative !important;
+  display: inline-block !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  max-width: 38px !important;
+  max-height: 38px !important;
+  flex: 0 0 38px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  isolation: isolate;
 }
 
-.language-flag-trigger {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 1px solid rgba(23, 22, 20, .14);
+.language-switcher.balai-language-selector *,
+.language-switcher.balai-language-selector *::before,
+.language-switcher.balai-language-selector *::after {
+  box-sizing: border-box;
+}
+
+.balai-language-trigger {
+  all: unset;
+  position: relative;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(23, 23, 21, .15);
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: var(--ink);
-  background: rgba(255, 250, 244, .92);
-  box-shadow:
-    0 10px 30px rgba(23, 22, 20, .08),
-    inset 0 0 0 1px rgba(255, 255, 255, .42);
+  color: var(--ink, #171715);
+  background: rgba(255, 250, 243, .90);
+  box-shadow: 0 8px 22px rgba(45, 32, 24, .08);
   cursor: pointer;
   transition:
-    opacity .16s ease,
-    visibility .16s ease,
-    border-color .16s ease,
-    box-shadow .16s ease,
-    transform .16s ease;
-  backdrop-filter: blur(16px);
+    border-color .15s ease,
+    background-color .15s ease,
+    box-shadow .15s ease;
+  backdrop-filter: blur(14px);
 }
 
-.language-flag-trigger:hover,
-.language-flag-trigger:focus-visible {
-  border-color: rgba(157, 86, 62, .42);
-  box-shadow:
-    0 12px 34px rgba(23, 22, 20, .12),
-    inset 0 0 0 1px rgba(255, 255, 255, .54);
+.balai-language-trigger:hover,
+.balai-language-trigger:focus-visible,
+.balai-language-selector.is-open .balai-language-trigger {
+  border-color: rgba(166, 83, 56, .46);
+  background: rgba(255, 250, 243, .99);
+  box-shadow: 0 10px 27px rgba(45, 32, 24, .12);
 }
 
-.language-flag-trigger:focus-visible {
-  outline: 2px solid rgba(157, 86, 62, .32);
+.balai-language-trigger:focus-visible {
+  outline: 2px solid rgba(166, 83, 56, .34);
   outline-offset: 3px;
 }
 
-.language-switcher--flag-expand.is-open .language-flag-trigger {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: scale(.9);
-}
-
-.language-flag-trigger .language-flag,
-.language-option-flag {
+.balai-current-flag,
+.balai-language-option-flag {
   overflow: hidden;
-  border: 1px solid rgba(23, 22, 20, .11);
-  border-radius: 3px;
+  border: 1px solid rgba(23, 23, 21, .11);
+  border-radius: 2px;
   display: block;
   background: #fff;
-  box-shadow: 0 2px 7px rgba(23, 22, 20, .10);
+  box-shadow: 0 1px 4px rgba(23, 23, 21, .10);
 }
 
-.language-flag-trigger .language-flag {
-  width: 23px;
+.balai-current-flag {
+  width: 22px;
   height: 15px;
 }
 
-.language-option-flag {
-  width: 21px;
-  height: 14px;
+.balai-language-option-flag {
+  width: 23px;
+  height: 15px;
   flex: 0 0 auto;
 }
 
-.language-flag svg,
-.language-option-flag svg {
+.balai-current-flag svg,
+.balai-language-option-flag svg {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.language-expand-panel {
+/* The menu is absolutely positioned, so opening it never moves or enlarges the header. */
+.balai-language-menu {
+  all: unset;
   position: absolute;
-  top: 0;
+  top: calc(100% + 9px);
   right: 0;
-  z-index: 2;
-  width: 44px;
-  height: 44px;
-  overflow: hidden;
-  border: 1px solid rgba(23, 22, 20, .14);
-  border-radius: 23px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  background: rgba(255, 250, 244, .96);
-  box-shadow:
-    0 18px 48px rgba(23, 22, 20, .12),
-    inset 0 0 0 1px rgba(255, 255, 255, .45);
+  z-index: 1;
+  width: 224px;
+  max-width: min(224px, calc(100vw - 24px));
+  padding: 6px;
+  border: 1px solid rgba(23, 23, 21, .13);
+  border-radius: 11px;
+  display: grid;
+  gap: 1px;
+  color: var(--ink, #171715);
+  background: rgba(255, 250, 243, .99);
+  box-shadow: 0 20px 54px rgba(45, 32, 24, .15);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform-origin: right center;
+  transform: translateY(-5px);
   transition:
-    width .24s cubic-bezier(.2, .75, .2, 1),
     opacity .14s ease,
     visibility .14s ease,
-    box-shadow .18s ease;
+    transform .14s ease;
   backdrop-filter: blur(18px);
 }
 
-.language-switcher--flag-expand.is-open .language-expand-panel {
-  width: 438px;
+.balai-language-selector.is-open .balai-language-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transform: none;
 }
 
-.language-expand-options {
-  width: 436px;
-  height: 42px;
-  padding: 0 8px;
-  display: grid;
-  grid-template-columns:
-    minmax(96px, .92fr)
-    minmax(88px, .82fr)
-    minmax(104px, .96fr)
-    minmax(132px, 1.2fr);
-  align-items: stretch;
-}
-
-.language-expand-option {
+.balai-language-option {
+  all: unset;
   position: relative;
-  min-width: 0;
-  padding: 0 10px;
-  border: 0;
-  border-radius: 0;
-  display: flex;
+  width: 100%;
+  min-height: 42px;
+  padding: 0 11px;
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: 23px 27px minmax(0, 1fr);
   align-items: center;
-  justify-content: center;
-  gap: 7px;
-  color: var(--ink);
-  background: transparent;
-  text-decoration: none;
-  white-space: nowrap;
+  gap: 8px;
+  color: var(--ink, #171715);
+  cursor: pointer;
   transition:
-    color .14s ease,
-    background-color .14s ease;
+    color .13s ease,
+    background-color .13s ease;
 }
 
-.language-expand-option + .language-expand-option::after {
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 0;
-  width: 1px;
-  background: rgba(23, 22, 20, .10);
-  content: "";
+.balai-language-option:hover,
+.balai-language-option:focus-visible {
+  color: #7e4634;
+  background: rgba(166, 83, 56, .07);
 }
 
-.language-expand-option:hover,
-.language-expand-option:focus-visible {
-  color: #844a37;
-  background: rgba(157, 86, 62, .055);
-}
-
-.language-expand-option:focus-visible {
-  outline: 2px solid rgba(157, 86, 62, .27);
+.balai-language-option:focus-visible {
+  outline: 2px solid rgba(166, 83, 56, .28);
   outline-offset: -2px;
 }
 
-.language-expand-option.is-active {
-  color: var(--ink);
+.balai-language-option.is-active {
+  background: rgba(23, 23, 21, .035);
 }
 
-.language-expand-option.is-active::before {
+.balai-language-option.is-active::before {
   position: absolute;
-  right: 13px;
-  bottom: 5px;
-  left: 13px;
-  height: 1px;
-  background: #9d563e;
+  top: 10px;
+  bottom: 10px;
+  left: 3px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--rust, #a65338);
   content: "";
 }
 
-.language-option-code {
+.balai-language-code {
   color: #8d8178;
-  font-size: 8.5px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: .12em;
   line-height: 1;
 }
 
-.language-expand-option.is-active .language-option-code {
-  color: #9d563e;
+.balai-language-option.is-active .balai-language-code {
+  color: var(--rust, #a65338);
 }
 
-.language-option-name {
+.balai-language-name {
   min-width: 0;
   overflow: hidden;
   color: inherit;
-  font-size: 10.5px;
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: -.01em;
-  line-height: 1;
+  line-height: 1.2;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.language-switcher-status {
+.balai-language-sr {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -217,138 +202,17 @@
   white-space: nowrap;
 }
 
-/* Mobile navigation remains typographic and touch-friendly. */
-.mobile-language-row {
-  border-color: var(--line);
-}
-
-.mobile-language-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px;
-}
-
-.mobile-language-links a {
-  position: relative;
-  min-width: 0;
-  padding: 5px 0 8px;
-  border: 0;
-  border-radius: 0;
-  color: var(--muted);
-  background: transparent;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-decoration: none;
-  transition: color .14s ease;
-}
-
-.mobile-language-links a::after {
-  position: absolute;
-  right: 0;
-  bottom: 2px;
-  left: 0;
-  height: 1px;
-  background: transparent;
-  content: "";
-}
-
-.mobile-language-links a:hover,
-.mobile-language-links a:focus-visible {
-  color: var(--ink);
-}
-
-.mobile-language-links a:focus-visible {
-  outline: 2px solid rgba(157, 86, 62, .28);
-  outline-offset: 3px;
-}
-
-.mobile-language-links a.is-active,
-.mobile-language-links a[aria-current="page"] {
-  color: var(--ink);
-}
-
-.mobile-language-links a.is-active::after,
-.mobile-language-links a[aria-current="page"]::after {
-  background: #9d563e;
-}
-
-@media (max-width: 1180px) {
-  .language-switcher--flag-expand.is-open .language-expand-panel {
-    width: 408px;
-  }
-
-  .language-expand-options {
-    width: 406px;
-    grid-template-columns:
-      minmax(88px, .9fr)
-      minmax(82px, .8fr)
-      minmax(98px, .95fr)
-      minmax(122px, 1.18fr);
-  }
-
-  .language-expand-option {
-    padding: 0 8px;
-    gap: 6px;
-  }
-
-  .language-option-name {
-    font-size: 10px;
-  }
-}
-
-@media (max-width: 760px) {
-  .language-expand-panel {
-    position: fixed;
-    top: 72px;
-    right: 14px;
-    width: min(390px, calc(100vw - 28px)) !important;
-    height: auto;
-    min-height: 104px;
-    border-radius: 14px;
-    align-items: stretch;
-  }
-
-  .language-expand-options {
-    width: 100%;
-    height: auto;
-    padding: 7px;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .language-expand-option {
-    min-height: 44px;
-    justify-content: flex-start;
-    border-radius: 7px;
-    padding: 0 11px;
-  }
-
-  .language-expand-option + .language-expand-option::after {
-    display: none;
-  }
-
-  .language-expand-option.is-active::before {
-    top: 10px;
-    right: auto;
-    bottom: 10px;
-    left: 3px;
-    width: 1px;
-    height: auto;
-  }
-}
-
-@media (max-width: 420px) {
-  .header-actions .language-switcher.language-switcher--flag-expand {
-    display: none;
+/* On compact headers the existing mobile menu already contains language links. */
+@media (max-width: 900px) {
+  .header-actions .language-switcher.balai-language-selector {
+    display: none !important;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .language-flag-trigger,
-  .language-expand-panel,
-  .language-expand-option,
-  .mobile-language-links a {
+  .balai-language-trigger,
+  .balai-language-menu,
+  .balai-language-option {
     transition: none !important;
   }
 }

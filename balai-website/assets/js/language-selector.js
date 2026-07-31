@@ -1,9 +1,9 @@
 (() => {
-  const languageMeta = {
-    English: { code: 'EN' },
-    Suomi: { code: 'FI' },
-    Svenska: { code: 'SV' },
-    'Bahasa Indonesia': { code: 'ID' }
+  const meta = {
+    English: { code: 'EN', key: 'en' },
+    Suomi: { code: 'FI', key: 'fi' },
+    Svenska: { code: 'SV', key: 'sv' },
+    'Bahasa Indonesia': { code: 'ID', key: 'id' }
   };
 
   const interfaceLabels = {
@@ -13,59 +13,82 @@
     id: { change: 'Ganti bahasa', current: 'Bahasa saat ini' }
   };
 
+  /* Self-contained flags avoid duplicate SVG IDs and missing/blank flags. */
+  const flags = {
+    en: `<svg aria-hidden="true" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <rect width="60" height="40" fill="#012169"/>
+      <path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="9"/>
+      <path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="13"/>
+      <path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="7"/>
+    </svg>`,
+    fi: `<svg aria-hidden="true" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <rect width="60" height="40" fill="#fff"/>
+      <rect x="17" width="8" height="40" fill="#003580"/>
+      <rect y="16" width="60" height="8" fill="#003580"/>
+    </svg>`,
+    sv: `<svg aria-hidden="true" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <rect width="60" height="40" fill="#006AA7"/>
+      <rect x="18" width="7" height="40" fill="#FECC00"/>
+      <rect y="16" width="60" height="7" fill="#FECC00"/>
+    </svg>`,
+    id: `<svg aria-hidden="true" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <rect width="60" height="20" fill="#CE1126"/>
+      <rect y="20" width="60" height="20" fill="#fff"/>
+    </svg>`
+  };
+
   const languageLabel = link =>
     link.getAttribute('title') ||
     link.getAttribute('aria-label') ||
     link.textContent.trim();
 
-  const enhanceSelector = selector => {
-    if (!selector || selector.classList.contains('language-switcher--flag-expand')) return;
+  const enhance = selector => {
+    if (!selector || selector.classList.contains('balai-language-selector')) return;
 
-    const links = [...selector.querySelectorAll('.lang-link')];
-    if (links.length < 2) return;
+    const originalLinks = [...selector.querySelectorAll('.lang-link')];
+    if (originalLinks.length < 2) return;
 
     const active =
-      links.find(link =>
+      originalLinks.find(link =>
         link.getAttribute('aria-current') === 'page' ||
         link.classList.contains('is-active')
-      ) || links[0];
+      ) || originalLinks[0];
 
     const activeLabel = languageLabel(active);
+    const activeMeta = meta[activeLabel] || {
+      code: document.documentElement.lang.slice(0, 2).toUpperCase(),
+      key: document.documentElement.lang.slice(0, 2).toLowerCase()
+    };
+
     const pageLanguage = document.documentElement.lang.slice(0, 2).toLowerCase();
     const ui = interfaceLabels[pageLanguage] || interfaceLabels.en;
-    const activeFlag = active.querySelector('svg')?.outerHTML || '';
-    const activeMeta = languageMeta[activeLabel] || {
-      code: pageLanguage.toUpperCase()
-    };
 
     const trigger = document.createElement('button');
     trigger.type = 'button';
-    trigger.className = 'language-flag-trigger';
+    trigger.className = 'balai-language-trigger';
     trigger.setAttribute('aria-haspopup', 'menu');
     trigger.setAttribute('aria-expanded', 'false');
     trigger.setAttribute('aria-label', `${ui.change}. ${ui.current}: ${activeLabel}`);
     trigger.innerHTML = `
-      <span class="language-flag" aria-hidden="true">${activeFlag}</span>
-      <span class="language-switcher-status">${activeMeta.code} ${activeLabel}</span>
+      <span class="balai-current-flag">${flags[activeMeta.key] || ''}</span>
+      <span class="balai-language-sr">${activeMeta.code} ${activeLabel}</span>
     `;
 
-    const panel = document.createElement('div');
-    panel.className = 'language-expand-panel';
-    panel.setAttribute('role', 'menu');
-    panel.setAttribute('aria-label', ui.change);
+    const menu = document.createElement('div');
+    menu.className = 'balai-language-menu';
+    menu.setAttribute('role', 'menu');
+    menu.setAttribute('aria-label', ui.change);
 
-    const options = document.createElement('div');
-    options.className = 'language-expand-options';
-
-    links.forEach(link => {
+    originalLinks.forEach(link => {
       const label = languageLabel(link);
-      const meta = languageMeta[label] || {
-        code: label.slice(0, 2).toUpperCase()
+      const itemMeta = meta[label] || {
+        code: label.slice(0, 2).toUpperCase(),
+        key: label.slice(0, 2).toLowerCase()
       };
       const isActive = link === active;
-      const flag = link.querySelector('svg')?.outerHTML || '';
 
-      link.className = `language-expand-option${isActive ? ' is-active' : ''}`;
+      link.className = `balai-language-option${isActive ? ' is-active' : ''}`;
       link.setAttribute('role', 'menuitemradio');
       link.setAttribute('aria-checked', String(isActive));
       link.setAttribute('tabindex', '-1');
@@ -75,91 +98,90 @@
       else link.removeAttribute('aria-current');
 
       link.innerHTML = `
-        <span class="language-option-flag" aria-hidden="true">${flag}</span>
-        <span class="language-option-code">${meta.code}</span>
-        <span class="language-option-name">${label}</span>
+        <span class="balai-language-option-flag">${flags[itemMeta.key] || ''}</span>
+        <span class="balai-language-code">${itemMeta.code}</span>
+        <span class="balai-language-name">${label}</span>
       `;
 
-      options.append(link);
+      menu.append(link);
     });
 
-    panel.append(options);
-    selector.replaceChildren(trigger, panel);
-    selector.classList.add('language-switcher--flag-expand');
+    selector.replaceChildren(trigger, menu);
+    selector.classList.add('balai-language-selector');
 
-    const optionLinks = [...options.querySelectorAll('.language-expand-option')];
+    const options = [...menu.querySelectorAll('.balai-language-option')];
+    const hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     let closeTimer = 0;
 
-    const cancelClose = () => {
-      window.clearTimeout(closeTimer);
-    };
+    const cancelClose = () => window.clearTimeout(closeTimer);
 
-    const openSelector = focusIndex => {
+    const open = focusIndex => {
       cancelClose();
 
-      document
-        .querySelectorAll('.language-switcher--flag-expand.is-open')
-        .forEach(other => {
-          if (other !== selector) {
-            other.classList.remove('is-open');
-            other.querySelector('.language-flag-trigger')
-              ?.setAttribute('aria-expanded', 'false');
-          }
-        });
+      document.querySelectorAll('.balai-language-selector.is-open').forEach(other => {
+        if (other !== selector) {
+          other.classList.remove('is-open');
+          other.querySelector('.balai-language-trigger')
+            ?.setAttribute('aria-expanded', 'false');
+        }
+      });
 
       selector.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
 
       if (Number.isInteger(focusIndex)) {
-        requestAnimationFrame(() => optionLinks[focusIndex]?.focus());
+        requestAnimationFrame(() => options[focusIndex]?.focus());
       }
     };
 
-    const closeSelector = (returnFocus = false, delay = 0) => {
+    const close = (returnFocus = false, delay = 0) => {
       cancelClose();
 
-      const close = () => {
+      const finish = () => {
         selector.classList.remove('is-open');
         trigger.setAttribute('aria-expanded', 'false');
         if (returnFocus) trigger.focus();
       };
 
-      if (delay) closeTimer = window.setTimeout(close, delay);
-      else close();
+      if (delay) closeTimer = window.setTimeout(finish, delay);
+      else finish();
     };
 
-    selector.addEventListener('pointerenter', () => openSelector());
-    selector.addEventListener('pointerleave', () => closeSelector(false, 150));
+    if (hoverCapable) {
+      selector.addEventListener('pointerenter', () => open());
+      selector.addEventListener('pointerleave', () => close(false, 170));
+    }
+
     selector.addEventListener('focusin', cancelClose);
     selector.addEventListener('focusout', event => {
-      if (!selector.contains(event.relatedTarget)) closeSelector(false, 80);
+      if (!selector.contains(event.relatedTarget)) close(false, 80);
     });
 
     trigger.addEventListener('click', () => {
-      if (selector.classList.contains('is-open')) closeSelector();
-      else openSelector();
+      if (selector.classList.contains('is-open')) close();
+      else open();
     });
 
     trigger.addEventListener('keydown', event => {
       const activeIndex = Math.max(
-        optionLinks.findIndex(option => option.classList.contains('is-active')),
+        options.findIndex(option => option.classList.contains('is-active')),
         0
       );
 
       if (['ArrowDown', 'Enter', ' '].includes(event.key)) {
         event.preventDefault();
-        openSelector(activeIndex);
+        open(activeIndex);
       } else if (event.key === 'ArrowUp') {
         event.preventDefault();
-        openSelector(optionLinks.length - 1);
+        open(options.length - 1);
       }
     });
 
-    optionLinks.forEach(option => {
+    options.forEach(option => {
       option.addEventListener('click', event => {
         if (option.classList.contains('is-active')) {
           event.preventDefault();
-          closeSelector(true);
+          close(true);
           return;
         }
 
@@ -172,46 +194,46 @@
       });
     });
 
-    panel.addEventListener('keydown', event => {
-      const currentIndex = optionLinks.indexOf(document.activeElement);
+    menu.addEventListener('keydown', event => {
+      const currentIndex = options.indexOf(document.activeElement);
 
       if (event.key === 'Escape') {
         event.preventDefault();
-        closeSelector(true);
-      } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        close(true);
+      } else if (event.key === 'ArrowDown') {
         event.preventDefault();
-        optionLinks[(currentIndex + 1 + optionLinks.length) % optionLinks.length]?.focus();
-      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        options[(currentIndex + 1 + options.length) % options.length]?.focus();
+      } else if (event.key === 'ArrowUp') {
         event.preventDefault();
-        optionLinks[(currentIndex - 1 + optionLinks.length) % optionLinks.length]?.focus();
+        options[(currentIndex - 1 + options.length) % options.length]?.focus();
       } else if (event.key === 'Home') {
         event.preventDefault();
-        optionLinks[0]?.focus();
+        options[0]?.focus();
       } else if (event.key === 'End') {
         event.preventDefault();
-        optionLinks.at(-1)?.focus();
+        options.at(-1)?.focus();
       } else if (event.key === 'Tab') {
-        closeSelector();
+        close();
       }
     });
 
     document.addEventListener('pointerdown', event => {
-      if (!selector.contains(event.target)) closeSelector();
+      if (!selector.contains(event.target)) close();
     });
 
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && selector.classList.contains('is-open')) {
-        closeSelector(true);
+        close(true);
       }
     });
 
     document.querySelectorAll(
       '[data-menu-toggle],[data-open-contact],[data-open-legal]'
     ).forEach(control => {
-      control.addEventListener('click', () => closeSelector());
+      control.addEventListener('click', () => close());
     });
 
-    window.addEventListener('resize', () => closeSelector(), { passive: true });
+    window.addEventListener('resize', () => close(), { passive: true });
   };
 
   const preserveMobileLanguagePosition = () => {
@@ -233,7 +255,7 @@
   };
 
   const init = () => {
-    document.querySelectorAll('.language-switcher').forEach(enhanceSelector);
+    document.querySelectorAll('.language-switcher').forEach(enhance);
     preserveMobileLanguagePosition();
   };
 
