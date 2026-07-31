@@ -112,10 +112,13 @@
     const options = [...menu.querySelectorAll('.balai-language-option')];
     const hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     let closeTimer = 0;
+    let openTimer = 0;
 
     const cancelClose = () => window.clearTimeout(closeTimer);
+    const cancelOpen = () => window.clearTimeout(openTimer);
 
     const open = focusIndex => {
+      cancelOpen();
       cancelClose();
 
       document.querySelectorAll('.balai-language-selector.is-open').forEach(other => {
@@ -135,6 +138,7 @@
     };
 
     const close = (returnFocus = false, delay = 0) => {
+      cancelOpen();
       cancelClose();
 
       const finish = () => {
@@ -148,8 +152,12 @@
     };
 
     if (hoverCapable) {
-      selector.addEventListener('pointerenter', () => open());
-      selector.addEventListener('pointerleave', () => close(false, 170));
+      selector.addEventListener('pointerenter', () => {
+        cancelClose();
+        cancelOpen();
+        openTimer = window.setTimeout(() => open(), 85);
+      });
+      selector.addEventListener('pointerleave', () => close(false, 150));
     }
 
     selector.addEventListener('focusin', cancelClose);
