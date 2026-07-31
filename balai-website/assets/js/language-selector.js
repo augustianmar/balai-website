@@ -1,5 +1,5 @@
 (() => {
-  const metaByLabel = {
+  const languageMeta = {
     English: { code: 'EN' },
     Suomi: { code: 'FI' },
     Svenska: { code: 'SV' },
@@ -7,13 +7,11 @@
   };
 
   const interfaceLabels = {
-    en: { change: 'Change language' },
-    fi: { change: 'Vaihda kieltä' },
-    sv: { change: 'Byt språk' },
-    id: { change: 'Ganti bahasa' }
+    en: { change: 'Change language', current: 'Current language' },
+    fi: { change: 'Vaihda kieltä', current: 'Nykyinen kieli' },
+    sv: { change: 'Byt språk', current: 'Nuvarande språk' },
+    id: { change: 'Ganti bahasa', current: 'Bahasa saat ini' }
   };
-
-  const chevron = '<svg class="language-trigger-chevron" aria-hidden="true" viewBox="0 0 20 20"><path d="m5.5 7.5 4.5 4.5 4.5-4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>';
 
   const languageLabel = link =>
     link.getAttribute('title') ||
@@ -21,7 +19,7 @@
     link.textContent.trim();
 
   const enhanceSelector = selector => {
-    if (!selector || selector.classList.contains('language-switcher--enhanced')) return;
+    if (!selector || selector.classList.contains('language-switcher--flag-expand')) return;
 
     const links = [...selector.querySelectorAll('.lang-link')];
     if (links.length < 2) return;
@@ -33,37 +31,41 @@
       ) || links[0];
 
     const activeLabel = languageLabel(active);
-    const activeMeta = metaByLabel[activeLabel] || {
-      code: document.documentElement.lang.slice(0, 2).toUpperCase()
-    };
-
     const pageLanguage = document.documentElement.lang.slice(0, 2).toLowerCase();
     const ui = interfaceLabels[pageLanguage] || interfaceLabels.en;
+    const activeFlag = active.querySelector('svg')?.outerHTML || '';
+    const activeMeta = languageMeta[activeLabel] || {
+      code: pageLanguage.toUpperCase()
+    };
 
     const trigger = document.createElement('button');
     trigger.type = 'button';
-    trigger.className = 'language-trigger';
+    trigger.className = 'language-flag-trigger';
     trigger.setAttribute('aria-haspopup', 'menu');
     trigger.setAttribute('aria-expanded', 'false');
-    trigger.setAttribute('aria-label', `${ui.change}: ${activeLabel}`);
+    trigger.setAttribute('aria-label', `${ui.change}. ${ui.current}: ${activeLabel}`);
     trigger.innerHTML = `
-      <span class="language-trigger-code">${activeMeta.code}</span>
-      ${chevron}
+      <span class="language-flag" aria-hidden="true">${activeFlag}</span>
+      <span class="language-switcher-status">${activeMeta.code} ${activeLabel}</span>
     `;
 
-    const menu = document.createElement('div');
-    menu.className = 'language-menu';
-    menu.setAttribute('role', 'menu');
-    menu.setAttribute('aria-label', ui.change);
+    const panel = document.createElement('div');
+    panel.className = 'language-expand-panel';
+    panel.setAttribute('role', 'menu');
+    panel.setAttribute('aria-label', ui.change);
+
+    const options = document.createElement('div');
+    options.className = 'language-expand-options';
 
     links.forEach(link => {
       const label = languageLabel(link);
-      const meta = metaByLabel[label] || {
+      const meta = languageMeta[label] || {
         code: label.slice(0, 2).toUpperCase()
       };
       const isActive = link === active;
+      const flag = link.querySelector('svg')?.outerHTML || '';
 
-      link.className = `language-option${isActive ? ' is-active' : ''}`;
+      link.className = `language-expand-option${isActive ? ' is-active' : ''}`;
       link.setAttribute('role', 'menuitemradio');
       link.setAttribute('aria-checked', String(isActive));
       link.setAttribute('tabindex', '-1');
@@ -73,41 +75,87 @@
       else link.removeAttribute('aria-current');
 
       link.innerHTML = `
+        <span class="language-option-flag" aria-hidden="true">${flag}</span>
         <span class="language-option-code">${meta.code}</span>
         <span class="language-option-name">${label}</span>
       `;
 
-      menu.append(link);
+      options.append(link);
     });
 
-    selector.replaceChildren(trigger, menu);
-    selector.classList.add('language-switcher--enhanced');
+    panel.append(options);
+    selector.replaceChildren(trigger, panel);
+    selector.classList.add('language-switcher--flag-expand');
 
-    const options = [...menu.querySelectorAll('.language-option')];
+    const optionLinks = [...options.querySelectorAll('.language-expand-option')];
+    let closeTimer = 0;
 
-    const closeSelector = returnFocus => {
-      selector.classList.remove('is-open');
-      trigger.setAttribute('aria-expanded', 'false');
-      if (returnFocus) trigger.focus();
+    const cancelClose = () => {
+      window.clearTimeout(closeTimer);
     };
 
     const openSelector = focusIndex => {
-      document.querySelectorAll('.language-switcher--enhanced.is-open').forEach(other => {
-        if (other !== selector) {
-          other.classList.remove('is-open');
-          other.querySelector('.language-trigger')?.setAttribute('aria-expanded', 'false');
-        }
-      });
+      cancelClose();
+
+      document
+        .querySelectorAll('.language-switcher--flag-expand.is-open')
+        .forEach(other => {
+          if (other !== selector) {
+            other.classList.remove('is-open');
+            other.querySelector('.language-flag-trigger')
+              ?.setAttribute('aria-expanded', 'false');
+          }
+        });
 
       selector.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
 
       if (Number.isInteger(focusIndex)) {
-        requestAnimationFrame(() => options[focusIndex]?.focus());
+        requestAnimationFrame(() => optionLinks[focusIndex]?.focus());
       }
     };
 
-    options.forEach(option => {
+    const closeSelector = (returnFocus = false, delay = 0) => {
+      cancelClose();
+
+      const close = () => {
+        selector.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        if (returnFocus) trigger.focus();
+      };
+
+      if (delay) closeTimer = window.setTimeout(close, delay);
+      else close();
+    };
+
+    selector.addEventListener('pointerenter', () => openSelector());
+    selector.addEventListener('pointerleave', () => closeSelector(false, 150));
+    selector.addEventListener('focusin', cancelClose);
+    selector.addEventListener('focusout', event => {
+      if (!selector.contains(event.relatedTarget)) closeSelector(false, 80);
+    });
+
+    trigger.addEventListener('click', () => {
+      if (selector.classList.contains('is-open')) closeSelector();
+      else openSelector();
+    });
+
+    trigger.addEventListener('keydown', event => {
+      const activeIndex = Math.max(
+        optionLinks.findIndex(option => option.classList.contains('is-active')),
+        0
+      );
+
+      if (['ArrowDown', 'Enter', ' '].includes(event.key)) {
+        event.preventDefault();
+        openSelector(activeIndex);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        openSelector(optionLinks.length - 1);
+      }
+    });
+
+    optionLinks.forEach(option => {
       option.addEventListener('click', event => {
         if (option.classList.contains('is-active')) {
           event.preventDefault();
@@ -124,51 +172,31 @@
       });
     });
 
-    trigger.addEventListener('click', () => {
-      if (selector.classList.contains('is-open')) closeSelector(false);
-      else openSelector();
-    });
-
-    trigger.addEventListener('keydown', event => {
-      const activeIndex = Math.max(
-        options.findIndex(option => option.classList.contains('is-active')),
-        0
-      );
-
-      if (['ArrowDown', 'Enter', ' '].includes(event.key)) {
-        event.preventDefault();
-        openSelector(activeIndex);
-      } else if (event.key === 'ArrowUp') {
-        event.preventDefault();
-        openSelector(options.length - 1);
-      }
-    });
-
-    menu.addEventListener('keydown', event => {
-      const currentIndex = options.indexOf(document.activeElement);
+    panel.addEventListener('keydown', event => {
+      const currentIndex = optionLinks.indexOf(document.activeElement);
 
       if (event.key === 'Escape') {
         event.preventDefault();
         closeSelector(true);
-      } else if (event.key === 'ArrowDown') {
+      } else if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
         event.preventDefault();
-        options[(currentIndex + 1 + options.length) % options.length]?.focus();
-      } else if (event.key === 'ArrowUp') {
+        optionLinks[(currentIndex + 1 + optionLinks.length) % optionLinks.length]?.focus();
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
         event.preventDefault();
-        options[(currentIndex - 1 + options.length) % options.length]?.focus();
+        optionLinks[(currentIndex - 1 + optionLinks.length) % optionLinks.length]?.focus();
       } else if (event.key === 'Home') {
         event.preventDefault();
-        options[0]?.focus();
+        optionLinks[0]?.focus();
       } else if (event.key === 'End') {
         event.preventDefault();
-        options.at(-1)?.focus();
+        optionLinks.at(-1)?.focus();
       } else if (event.key === 'Tab') {
-        closeSelector(false);
+        closeSelector();
       }
     });
 
     document.addEventListener('pointerdown', event => {
-      if (!selector.contains(event.target)) closeSelector(false);
+      if (!selector.contains(event.target)) closeSelector();
     });
 
     document.addEventListener('keydown', event => {
@@ -177,13 +205,13 @@
       }
     });
 
-    window.addEventListener('resize', () => closeSelector(false), { passive: true });
-
     document.querySelectorAll(
       '[data-menu-toggle],[data-open-contact],[data-open-legal]'
     ).forEach(control => {
-      control.addEventListener('click', () => closeSelector(false));
+      control.addEventListener('click', () => closeSelector());
     });
+
+    window.addEventListener('resize', () => closeSelector(), { passive: true });
   };
 
   const preserveMobileLanguagePosition = () => {
