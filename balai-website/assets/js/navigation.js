@@ -46,13 +46,13 @@
   const isArticle = isInsights && /\/insights\/[^/]+\/(?:index\.html)?$/.test(path);
   const languagePrefix = language === 'en' ? '' : `${language}/`;
 
-  const projectIndex = path.indexOf('/balai-website/');
-  const projectRoot = projectIndex >= 0
-    ? path.slice(0, projectIndex + '/balai-website/'.length)
-    : '/';
+  const navigationScript = document.currentScript?.src;
+  const siteRoot = navigationScript
+    ? new URL('../../', navigationScript)
+    : new URL('./', document.baseURI);
 
-  const homeUrl = `${projectRoot}${languagePrefix}index.html`;
-  const insightsUrl = `${projectRoot}${languagePrefix}insights/`;
+  const homeUrl = new URL(`${languagePrefix}index.html`, siteRoot).href;
+  const insightsUrl = new URL(`${languagePrefix}insights/`, siteRoot).href;
 
   const navItems = [
     { key: 'home', href: `${homeUrl}#top` },

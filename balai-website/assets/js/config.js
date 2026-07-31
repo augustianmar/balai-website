@@ -12,7 +12,7 @@ window.BALAI_CONFIG = {
     { type: 'style', href: new URL('../css/language-selector.css?v=75', loader.src).href },
     { type: 'style', href: new URL('../css/navigation.css?v=80', loader.src).href },
     { type: 'script', href: new URL('./language-selector.js?v=75', loader.src).href },
-    { type: 'script', href: new URL('./navigation.js?v=80', loader.src).href }
+    { type: 'script', href: new URL('./navigation.js?v=81', loader.src).href }
   ];
 
   assets.forEach(asset => {
