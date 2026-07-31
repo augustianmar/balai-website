@@ -1,16 +1,16 @@
 (() => {
   const metaByLabel = {
-    English: { code: 'EN', trigger: 'English' },
-    Suomi: { code: 'FI', trigger: 'Suomi' },
-    Svenska: { code: 'SV', trigger: 'Svenska' },
-    'Bahasa Indonesia': { code: 'ID', trigger: 'Indonesia' }
+    English: { code: 'EN' },
+    Suomi: { code: 'FI' },
+    Svenska: { code: 'SV' },
+    'Bahasa Indonesia': { code: 'ID' }
   };
 
   const interfaceLabels = {
-    en: { change: 'Change language', current: 'Current language', menu: 'Language' },
-    fi: { change: 'Vaihda kieltä', current: 'Nykyinen kieli', menu: 'Kieli' },
-    sv: { change: 'Byt språk', current: 'Nuvarande språk', menu: 'Språk' },
-    id: { change: 'Ganti bahasa', current: 'Bahasa saat ini', menu: 'Bahasa' }
+    en: { change: 'Change language' },
+    fi: { change: 'Vaihda kieltä' },
+    sv: { change: 'Byt språk' },
+    id: { change: 'Ganti bahasa' }
   };
 
   const chevron = '<svg class="language-trigger-chevron" aria-hidden="true" viewBox="0 0 20 20"><path d="m5.5 7.5 4.5 4.5 4.5-4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>';
@@ -34,8 +34,7 @@
 
     const activeLabel = languageLabel(active);
     const activeMeta = metaByLabel[activeLabel] || {
-      code: document.documentElement.lang.slice(0, 2).toUpperCase(),
-      trigger: activeLabel
+      code: document.documentElement.lang.slice(0, 2).toUpperCase()
     };
 
     const pageLanguage = document.documentElement.lang.slice(0, 2).toLowerCase();
@@ -46,11 +45,9 @@
     trigger.className = 'language-trigger';
     trigger.setAttribute('aria-haspopup', 'menu');
     trigger.setAttribute('aria-expanded', 'false');
-    trigger.setAttribute('aria-label', `${ui.change}. ${ui.current}: ${activeLabel}`);
+    trigger.setAttribute('aria-label', `${ui.change}: ${activeLabel}`);
     trigger.innerHTML = `
       <span class="language-trigger-code">${activeMeta.code}</span>
-      <span class="language-trigger-divider" aria-hidden="true"></span>
-      <span class="language-trigger-name">${activeMeta.trigger}</span>
       ${chevron}
     `;
 
@@ -58,13 +55,11 @@
     menu.className = 'language-menu';
     menu.setAttribute('role', 'menu');
     menu.setAttribute('aria-label', ui.change);
-    menu.innerHTML = `<div class="language-menu-label" aria-hidden="true">${ui.menu}</div>`;
 
     links.forEach(link => {
       const label = languageLabel(link);
       const meta = metaByLabel[label] || {
-        code: label.slice(0, 2).toUpperCase(),
-        trigger: label
+        code: label.slice(0, 2).toUpperCase()
       };
       const isActive = link === active;
 
@@ -114,9 +109,7 @@
 
     options.forEach(option => {
       option.addEventListener('click', event => {
-        const isActive = option.classList.contains('is-active');
-
-        if (isActive) {
+        if (option.classList.contains('is-active')) {
           event.preventDefault();
           closeSelector(true);
           return;
