@@ -198,7 +198,7 @@
   .home-insight-art{min-height:340px}
 }
 @media(max-width:760px){
-  .home-insights-preview{padding:78px 0}
+  .home-insights-preview{padding:72px 0}
   .home-insights-heading{margin-bottom:32px}
   .home-insights-heading h2{font-size:clamp(48px,15vw,68px)}
   .home-insight-card{min-height:0;border-radius:20px}

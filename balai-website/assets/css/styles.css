@@ -288,3 +288,19 @@ body:before{content:"";position:fixed;inset:0;z-index:1000;pointer-events:none;o
 .legal-panel small{display:block;margin-top:28px;padding:17px 19px;border:1px solid var(--line);border-radius:13px;background:var(--cream);color:#765548;font-size:11px;line-height:1.65}
 @media(max-width:900px){.footer-bottom{grid-template-columns:1fr;align-items:start;gap:14px}.footer-legal{justify-content:flex-start}.footer-corridor{text-align:left}}
 @media(max-width:760px){.whatsapp-float{width:56px;min-height:56px;padding:0;justify-content:center;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom))}.whatsapp-label{display:none}.legal-card{margin:3vh auto;padding:34px 23px 25px}.legal-panel h2{padding-right:42px;font-size:48px}}
+
+/* BALAI Premium V6.8 — unified section rhythm and founder story */
+:root{--section-space:96px;--section-space-mobile:72px}
+.section{padding-block:var(--section-space)}
+.deliverables-section{padding-bottom:var(--section-space)}
+.final-cta{padding-block:var(--section-space)}
+.section-heading{margin-bottom:44px}
+.about-section,.clients-section{border-top:1px solid var(--line)}
+.fact--wide{grid-column:1/-1;min-height:auto;padding-block:22px}
+.fact--wide strong{max-width:780px;margin-top:11px}
+.fact--wide em{color:var(--rust);font-style:normal}
+@media(max-width:760px){
+  .section,.final-cta{padding-block:var(--section-space-mobile)}
+  .section-heading{margin-bottom:32px}
+  .fact--wide{grid-column:auto;padding-block:20px}
+}

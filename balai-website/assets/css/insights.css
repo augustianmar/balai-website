@@ -53,7 +53,7 @@
   line-height:1.75;
 }
 .insights-index{
-  padding:72px 0 110px;
+  padding:72px 0 96px;
   background:var(--paper);
 }
 .insights-feature{
@@ -196,7 +196,7 @@
   grid-template-columns:minmax(210px,260px) minmax(0,760px);
   gap:68px;
   justify-content:center;
-  padding:88px 0 110px;
+  padding:88px 0 96px;
 }
 .article-aside{
   position:sticky;
@@ -302,7 +302,7 @@
   .insights-main{padding-top:76px}
   .insights-hero{padding:75px 0 60px}
   .insights-hero h1{font-size:clamp(58px,18vw,82px)}
-  .insights-index{padding:55px 0 80px}
+  .insights-index{padding:55px 0 72px}
   .insights-feature{border-radius:20px}
   .insights-feature-art{min-height:390px;padding:26px}
   .insights-feature-number{font-size:64px}
@@ -312,7 +312,7 @@
   .article-back{margin-bottom:35px}
   .article-hero h1{font-size:clamp(54px,16vw,80px)}
   .article-deck{font-size:17px}
-  .article-layout{padding:56px 0 78px}
+  .article-layout{padding:56px 0 72px}
   .article-body .article-lead{font-size:26px}
   .article-body p{font-size:16px}
   .article-body blockquote{font-size:26px}
