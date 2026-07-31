@@ -1,0 +1,35 @@
+
+/* BALAI V8.0 — hybrid one-page navigation + Insights */
+
+.desktop-nav{
+  gap:clamp(17px,1.75vw,28px);
+}
+.desktop-nav a{
+  font-size:11.5px;
+  white-space:nowrap;
+}
+.desktop-nav a.nav-external::after{
+  background:var(--rust);
+}
+.insights-page .site-header{
+  background:rgba(245,236,223,.95);
+  border-color:var(--line);
+  backdrop-filter:blur(18px);
+}
+.insights-page .scroll-progress{
+  display:none;
+}
+.footer-grid .footer-insights-link{
+  color:#fff;
+}
+@media(max-width:1240px){
+  .header-inner{gap:20px}
+  .desktop-nav{gap:17px}
+  .desktop-nav a{font-size:11px}
+  .header-actions{gap:9px}
+  .header-cta{padding-inline:17px}
+}
+@media(max-width:1120px){
+  .desktop-nav{gap:13px}
+  .desktop-nav a{font-size:10.5px}
+}
