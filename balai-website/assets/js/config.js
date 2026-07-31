@@ -10,9 +10,9 @@ window.BALAI_CONFIG = {
 
   const assets = [
     { type: 'style', href: new URL('../css/language-selector.css?v=75', loader.src).href },
-    { type: 'style', href: new URL('../css/navigation.css?v=82', loader.src).href },
+    { type: 'style', href: new URL('../css/navigation.css?v=83', loader.src).href },
     { type: 'script', href: new URL('./language-selector.js?v=75', loader.src).href },
-    { type: 'script', href: new URL('./navigation.js?v=82', loader.src).href }
+    { type: 'script', href: new URL('./navigation.js?v=83', loader.src).href }
   ];
 
   assets.forEach(asset => {
