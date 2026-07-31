@@ -8,8 +8,8 @@ window.BALAI_CONFIG = {
   const loader = document.currentScript;
   if (!loader?.src) return;
 
-  const styleHref = new URL('../css/language-selector.css?v=68', loader.src).href;
-  const scriptHref = new URL('./language-selector.js?v=68', loader.src).href;
+  const styleHref = new URL('../css/language-selector.css?v=69', loader.src).href;
+  const scriptHref = new URL('./language-selector.js?v=69', loader.src).href;
 
   if (!document.querySelector(`link[href="${styleHref}"]`)) {
     const style = document.createElement('link');
