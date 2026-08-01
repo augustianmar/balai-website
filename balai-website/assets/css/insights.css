@@ -203,10 +203,10 @@
   top:126px;
   align-self:start;
 }
-.article-aside-label{display:block;margin-bottom:15px;color:#765548;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.article-aside-label{display:block;margin-bottom:15px;color:#765548;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .article-toc{margin:0;padding:0;border-top:1px solid var(--line);list-style:none;counter-reset:article-toc}
 .article-toc li{counter-increment:article-toc;border-bottom:1px solid var(--line)}
-.article-toc a{position:relative;display:block;padding:13px 0 13px 28px;color:#625b55;font-size:10.5px;font-weight:600;line-height:1.45;transition:color .18s ease}
+.article-toc a{position:relative;display:block;padding:13px 0 13px 28px;color:#625b55;font-size:12px;font-weight:600;line-height:1.45;transition:color .18s ease}
 .article-toc a::before{content:"0" counter(article-toc);position:absolute;left:0;top:15px;color:var(--rust);font-size:8px;font-weight:700;letter-spacing:.1em}
 .article-toc a:hover{color:var(--ink)}
 .article-body{

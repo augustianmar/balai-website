@@ -304,3 +304,66 @@ body:before{content:"";position:fixed;inset:0;z-index:1000;pointer-events:none;o
   .section-heading{margin-bottom:32px}
   .fact--wide{grid-column:auto;padding-block:20px}
 }
+
+/* BALAI Premium V7.4 — launch-readiness, readability and compact rhythm */
+.direction-cta,
+.client-sides a,
+.service-link{font-size:12px}
+.form-grid label{font-size:11.5px}
+.form-bottom small{font-size:11.5px}
+.footer-legal{display:none}
+body.legal-ready .footer-legal{display:flex}
+body:not(.whatsapp-ready) .whatsapp-float{display:none}
+
+.service-engagement-section{
+  padding:0 0 var(--section-space);
+  background:var(--paper);
+}
+.service-engagement-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--line);
+}
+.service-engagement-item{
+  min-height:155px;
+  padding:25px;
+  background:var(--cream);
+}
+.service-engagement-item:nth-child(2){background:var(--peach-soft)}
+.service-engagement-item span{
+  display:block;
+  margin-bottom:20px;
+  color:var(--rust);
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.service-engagement-item strong{
+  display:block;
+  max-width:390px;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.55;
+}
+
+@media(min-width:1101px){
+  .direction-card{min-height:640px}
+  .direction-card h3{margin-top:52px}
+  .service-item{padding-block:27px}
+  .delivery-stage{min-height:390px}
+  .step{min-height:275px}
+  .client-sides article{min-height:410px}
+  .client-sides h3{margin-top:50px}
+}
+
+@media(max-width:760px){
+  .service-engagement-section{padding-bottom:var(--section-space-mobile)}
+  .service-engagement-grid{grid-template-columns:1fr}
+  .service-engagement-item{min-height:0}
+  .direction-card{min-height:580px}
+}

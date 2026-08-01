@@ -1,7 +1,11 @@
 window.BALAI_CONFIG = {
+  /* Add one confirmed destination before publishing active enquiry buttons. */
   email: "",
   formEndpoint: "",
-  whatsappNumber: ""
+  /* International format, digits only or with a leading +, for example +358... */
+  whatsappNumber: "",
+  /* Change to true only after replacing the legal preview with final text. */
+  legalReady: false
 };
 
 (() => {
@@ -9,10 +13,10 @@ window.BALAI_CONFIG = {
   if (!loader?.src) return;
 
   const assets = [
-    { type: 'style', href: new URL('../css/language-selector.css?v=75', loader.src).href },
-    { type: 'style', href: new URL('../css/navigation.css?v=83', loader.src).href },
-    { type: 'script', href: new URL('./language-selector.js?v=75', loader.src).href },
-    { type: 'script', href: new URL('./navigation.js?v=83', loader.src).href }
+    { type: 'style', href: new URL('../css/language-selector.css?v=84', loader.src).href },
+    { type: 'style', href: new URL('../css/navigation.css?v=84', loader.src).href },
+    { type: 'script', href: new URL('./language-selector.js?v=84', loader.src).href },
+    { type: 'script', href: new URL('./navigation.js?v=84', loader.src).href }
   ];
 
   assets.forEach(asset => {

@@ -14,9 +14,30 @@
   const progress = document.querySelector('[data-scroll-progress]');
   let lastFocused = null;
 
+  const email = String(config.email || '').trim();
+  const formEndpoint = String(config.formEndpoint || '').trim();
+  const whatsappNumber = String(config.whatsappNumber || '').replace(/\D/g,'');
+  const contactReady = Boolean(email || formEndpoint);
+  const legalReady = config.legalReady === true;
+  const language = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+  const unavailableMessages = {
+    en: 'BALAI’s direct contact channels are being prepared. Please check back shortly.',
+    fi: 'BALAI:n suoria yhteydenottokanavia valmistellaan. Palaa pian uudelleen.',
+    sv: 'BALAI:s direkta kontaktkanaler förbereds. Välkommen tillbaka inom kort.',
+    id: 'Saluran kontak langsung BALAI sedang dipersiapkan. Silakan kembali dalam waktu dekat.'
+  };
+
+  body.classList.toggle('contact-ready', contactReady);
+  body.classList.toggle('whatsapp-ready', Boolean(whatsappNumber));
+  body.classList.toggle('legal-ready', legalReady);
+
+  if (!legalReady) {
+    legalModal?.setAttribute('aria-hidden', 'true');
+  }
+
   const onScroll = () => {
     header?.classList.toggle('is-scrolled', window.scrollY > 18);
-    whatsappButton?.classList.toggle('is-visible', window.scrollY > 160);
+    whatsappButton?.classList.toggle('is-visible', Boolean(whatsappNumber) && window.scrollY > 160);
     if (progress) {
       const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
       progress.style.transform = `scaleX(${Math.min(window.scrollY / max, 1)})`;
@@ -55,6 +76,10 @@
 
   const openModal = trigger => {
     closeMenu();
+    if (!contactReady) {
+      showToast(unavailableMessages[language] || unavailableMessages.en);
+      return;
+    }
     lastFocused = document.activeElement;
     modal?.classList.add('is-open');
     modal?.setAttribute('aria-hidden','false');
@@ -76,7 +101,7 @@
   document.querySelectorAll('[data-close-contact]').forEach(btn => btn.addEventListener('click', closeModal));
 
   const openLegal = (type, trigger) => {
-    if (!legalModal) return;
+    if (!legalReady || !legalModal) return;
     legalLastFocused = trigger || document.activeElement;
     legalModal.querySelectorAll('[data-legal-panel]').forEach(panel => {
       panel.hidden = panel.dataset.legalPanel !== type;
@@ -100,10 +125,9 @@
   });
   document.querySelectorAll('[data-close-legal]').forEach(btn => btn.addEventListener('click', closeLegal));
 
-  const whatsappNumber = String(config.whatsappNumber || '').replace(/\D/g,'');
   whatsappButton?.addEventListener('click', () => {
     if (!whatsappNumber) {
-      showToast(body.dataset.whatsappMissing);
+      showToast(unavailableMessages[language] || unavailableMessages.en);
       return;
     }
     const message = whatsappButton.dataset.whatsappMessage || '';
@@ -165,8 +189,7 @@
   form?.addEventListener('submit', async event => {
     event.preventDefault();
     const data = new FormData(form);
-    const endpoint = (config.formEndpoint || '').trim();
-    const email = (config.email || '').trim();
+    const endpoint = formEndpoint;
     const submit = form.querySelector('button[type="submit"]');
     submit.disabled = true;
     try {
@@ -191,7 +214,7 @@
         ].join('\n');
         window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
       } else {
-        showToast(body.dataset.formMissing);
+        showToast(unavailableMessages[language] || unavailableMessages.en);
       }
     } catch (error) {
       showToast(body.dataset.formError);
