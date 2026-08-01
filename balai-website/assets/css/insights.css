@@ -147,6 +147,90 @@
   font-size:12px;
   text-align:center;
 }
+.insights-archive{
+  margin-top:54px;
+}
+.insights-archive-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:28px;
+  margin-bottom:24px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--line);
+}
+.insights-archive-heading h2{
+  margin:0;
+  font:400 clamp(36px,4vw,52px)/1 var(--serif);
+  letter-spacing:-.035em;
+}
+.insights-archive-heading span{
+  color:#765548;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.insights-card-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+.insights-card{
+  min-height:300px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  display:grid;
+  grid-template-columns:minmax(150px,.42fr) minmax(0,1fr);
+  overflow:hidden;
+  background:var(--cream);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.insights-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 54px rgba(58,40,30,.08);
+}
+.insights-card-art{
+  position:relative;
+  overflow:hidden;
+  padding:24px;
+  color:#f1b79f;
+  background:var(--sage);
+}
+.insights-card-art::before,
+.insights-card-art::after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+}
+.insights-card-art::before{width:220px;height:220px;left:-120px;bottom:-110px}
+.insights-card-art::after{width:260px;height:260px;right:-190px;top:-160px}
+.insights-card-number{
+  position:relative;
+  z-index:1;
+  font:400 76px/.9 var(--serif);
+  letter-spacing:-.05em;
+}
+.insights-card-copy{
+  display:flex;
+  flex-direction:column;
+  padding:30px 32px;
+}
+.insights-card-copy h3{
+  margin:30px 0 12px;
+  font:400 clamp(32px,3vw,44px)/1 var(--serif);
+  letter-spacing:-.035em;
+}
+.insights-card-copy>p{
+  margin:0 0 26px;
+  color:#5d5751;
+  font-size:13px;
+  line-height:1.7;
+}
+.insights-card-copy .insight-read-link{
+  margin-top:auto;
+}
 
 /* Article */
 .article-hero{
@@ -229,6 +313,17 @@
   font-size:17px;
   line-height:1.82;
 }
+.article-citation{
+  color:var(--rust);
+  text-decoration:underline;
+  text-decoration-color:rgba(166,83,56,.35);
+  text-underline-offset:3px;
+  transition:color .18s ease,text-decoration-color .18s ease;
+}
+.article-citation:hover{
+  color:#7f3d29;
+  text-decoration-color:currentColor;
+}
 .booking-chain{margin:48px 0 64px;padding:28px;border-radius:18px;background:var(--sage);color:#fff}
 .booking-chain figcaption{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,.9fr);gap:28px;align-items:end}
 .booking-chain figcaption strong{font:400 32px/1.06 var(--serif);letter-spacing:-.025em}
@@ -255,6 +350,29 @@
   color:#6a625b;
   font-size:12px;
   line-height:1.7;
+}
+.article-sources{
+  margin-top:52px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.article-sources h3{
+  margin:0 0 14px;
+  color:#765548;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.article-sources ul{
+  margin:0;
+  padding-left:18px;
+}
+.article-sources li{
+  margin:8px 0;
+  color:#625b55;
+  font-size:12px;
+  line-height:1.6;
 }
 .article-cta{
   margin-top:72px;
@@ -296,6 +414,7 @@
   .article-toc li{border-right:1px solid var(--line)}
   .article-toc a{height:100%;padding:13px 14px 13px 40px}
   .article-toc a::before{left:14px}
+  .insights-card-grid{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .insights-main{padding-top:76px}
@@ -321,6 +440,11 @@
   .booking-chain li{min-height:84px}
   .booking-chain li+li{border-top:0;border-left:1px solid rgba(255,255,255,.23)}
   .booking-chain li:not(:last-child)::after{right:50%;top:auto;bottom:-9px;transform:translateX(50%) rotate(90deg)}
+  .insights-archive{margin-top:42px}
+  .insights-archive-heading{align-items:start;flex-direction:column-reverse;gap:10px}
+  .insights-card{grid-template-columns:1fr;min-height:0}
+  .insights-card-art{min-height:165px}
+  .insights-card-copy{padding:27px}
 }
 @media(max-width:520px){
   .article-toc{grid-template-columns:1fr}

@@ -5,48 +5,48 @@
       insightsEyebrow: 'BALAI INSIGHTS',
       insightsTitle: 'Market knowledge, made commercially useful.',
       insightsIntro: 'Focused observations for tourism companies that need clearer market signals, stronger partner decisions and practical routes forward.',
-      featured: 'FEATURED INSIGHT', date: '31 JULY 2026', readTime: '4 MIN READ',
-      articleTitle: 'The Market Behind the Middleman',
-      articleDeck: 'Why Indonesian demand in Lapland may be less visible than direct booking figures suggest.',
-      readArticle: 'Read insight', viewAll: 'View all insights', insightIndex: 'INSIGHT / 01',
-      chainLabel: 'Illustrative booking chain',
-      chainStages: ['Traveller in Indonesia', 'Indonesian agency', 'International wholesaler', 'Finnish DMC', 'Lapland supplier']
+      featured: 'FEATURED INSIGHT', date: '1 AUGUST 2026', readTime: '6 MIN READ',
+      articleTitle: 'The New Travel Gatekeeper',
+      articleDeck: 'How AI-assisted discovery can shape which Lapland products reach a traveller’s shortlist.',
+      readArticle: 'Read insight', viewAll: 'View all insights', insightIndex: 'INSIGHT / 02',
+      chainLabel: 'Illustrative discovery chain',
+      chainStages: ['Traveller question', 'AI-assisted shortlist', 'Trusted travel brand', 'Travel-trade partner', 'Lapland supplier']
     },
     fi: {
       home: 'Etusivu', markets: 'Markkinat', services: 'Palvelut', approach: 'Toimintatapa', insights: 'Näkemykset', founder: 'Perustaja', explore: 'TUTUSTU',
       insightsEyebrow: 'BALAI-NÄKEMYKSET',
       insightsTitle: 'Markkinatietoa, josta on kaupallista hyötyä.',
       insightsIntro: 'Tarkennettuja havaintoja matkailuyrityksille, jotka tarvitsevat selkeämpiä markkinasignaaleja, parempia kumppanipäätöksiä ja käytännöllisiä etenemisreittejä.',
-      featured: 'NOSTETTU NÄKEMYS', date: '31. HEINÄKUUTA 2026', readTime: '4 MIN LUKUAIKA',
-      articleTitle: 'Markkina välikäden takana',
-      articleDeck: 'Miksi Indonesian kysyntä Lapissa voi näkyä suoria varauslukuja heikommin.',
-      readArticle: 'Lue näkemys', viewAll: 'Kaikki näkemykset', insightIndex: 'NÄKEMYS / 01',
-      chainLabel: 'Havainnollistava varausketju',
-      chainStages: ['Matkailija Indonesiassa', 'Indonesialainen matkatoimisto', 'Kansainvälinen tukkumyyjä', 'Suomalainen DMC', 'Lapin palveluntarjoaja']
+      featured: 'NOSTETTU NÄKEMYS', date: '1. ELOKUUTA 2026', readTime: '6 MIN LUKUAIKA',
+      articleTitle: 'Matkailun uusi portinvartija',
+      articleDeck: 'Miten tekoälyavusteinen matkasuunnittelu voi vaikuttaa siihen, mitkä Lapin matkailutuotteet päätyvät matkailijan valintalistalle.',
+      readArticle: 'Lue näkemys', viewAll: 'Kaikki näkemykset', insightIndex: 'NÄKEMYS / 02',
+      chainLabel: 'Havainnollistava löytämisketju',
+      chainStages: ['Matkailijan kysymys', 'Tekoälyn muodostama valikoima', 'Luotettu matkailubrändi', 'Matkailualan kumppani', 'Lapin palveluntarjoaja']
     },
     sv: {
       home: 'Hem', markets: 'Marknader', services: 'Tjänster', approach: 'Arbetssätt', insights: 'Insikter', founder: 'Grundare', explore: 'UTFORSKA',
       insightsEyebrow: 'BALAI INSIKTER',
       insightsTitle: 'Marknadskunskap, gjord kommersiellt användbar.',
       insightsIntro: 'Fokuserade observationer för turismföretag som behöver tydligare marknadssignaler, bättre partnerbeslut och praktiska vägar framåt.',
-      featured: 'UTVALD INSIKT', date: '31 JULI 2026', readTime: '4 MIN LÄSNING',
-      articleTitle: 'Marknaden bakom mellanhanden',
-      articleDeck: 'Varför indonesisk efterfrågan i Lappland kan vara mindre synlig än de direkta bokningssiffrorna antyder.',
-      readArticle: 'Läs insikten', viewAll: 'Visa alla insikter', insightIndex: 'INSIKT / 01',
-      chainLabel: 'Illustrativ bokningskedja',
-      chainStages: ['Resenär i Indonesien', 'Indonesisk resebyrå', 'Internationell grossist', 'Finländsk DMC', 'Leverantör i Lappland']
+      featured: 'UTVALD INSIKT', date: '1 AUGUSTI 2026', readTime: '6 MIN LÄSNING',
+      articleTitle: 'Resandets nya portvakt',
+      articleDeck: 'Hur AI-stödd reseplanering kan påverka vilka turistprodukter i Lappland som når resenärens urval.',
+      readArticle: 'Läs insikten', viewAll: 'Visa alla insikter', insightIndex: 'INSIKT / 02',
+      chainLabel: 'Illustrativ upptäcktskedja',
+      chainStages: ['Resenärens fråga', 'AI-format urval', 'Betrott resevarumärke', 'Resebranschpartner', 'Leverantör i Lappland']
     },
     id: {
       home: 'Beranda', markets: 'Pasar', services: 'Layanan', approach: 'Pendekatan', insights: 'Wawasan', founder: 'Pendiri', explore: 'JELAJAHI',
       insightsEyebrow: 'WAWASAN BALAI',
       insightsTitle: 'Pengetahuan pasar yang berguna secara komersial.',
       insightsIntro: 'Pengamatan terarah bagi perusahaan pariwisata yang membutuhkan sinyal pasar lebih jelas, keputusan mitra lebih kuat, dan jalur maju yang praktis.',
-      featured: 'WAWASAN UTAMA', date: '31 JULI 2026', readTime: '4 MENIT BACA',
-      articleTitle: 'Pasar di Balik Perantara',
-      articleDeck: 'Mengapa permintaan Indonesia di Lapland dapat terlihat lebih kecil daripada yang ditunjukkan oleh angka pemesanan langsung.',
-      readArticle: 'Baca wawasan', viewAll: 'Lihat semua wawasan', insightIndex: 'WAWASAN / 01',
-      chainLabel: 'Rantai pemesanan ilustratif',
-      chainStages: ['Wisatawan di Indonesia', 'Agen perjalanan Indonesia', 'Wholesaler internasional', 'DMC Finlandia', 'Pemasok Lapland']
+      featured: 'WAWASAN UTAMA', date: '1 AGUSTUS 2026', readTime: '6 MENIT BACA',
+      articleTitle: 'Penjaga Gerbang Baru di Dunia Perjalanan',
+      articleDeck: 'Bagaimana penemuan perjalanan berbantuan AI dapat memengaruhi produk Lapland yang masuk ke dalam daftar pilihan wisatawan.',
+      readArticle: 'Baca wawasan', viewAll: 'Lihat semua wawasan', insightIndex: 'WAWASAN / 02',
+      chainLabel: 'Rantai penemuan ilustratif',
+      chainStages: ['Pertanyaan wisatawan', 'Daftar pilihan berbantuan AI', 'Merek perjalanan tepercaya', 'Mitra perdagangan perjalanan', 'Pemasok Lapland']
     }
   };
 
@@ -114,7 +114,7 @@
 
   const homeUrl = new URL(`${languagePrefix}index.html`, siteRoot).href;
   const insightsUrl = new URL(`${languagePrefix}insights/`, siteRoot).href;
-  const articleUrl = new URL(`${languagePrefix}insights/market-behind-the-middleman/`, siteRoot).href;
+  const articleUrl = new URL(`${languagePrefix}insights/new-travel-gatekeeper/`, siteRoot).href;
   const createHomepageInsightsPreview = () => {
     if (isInsights || document.getElementById('insights')) return;
 

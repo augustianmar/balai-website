@@ -1,7 +1,7 @@
-BALAI Premium V6.7 Contact & Legal Visual Shell
-Footer ownership line, multilingual legal selectors and premium floating WhatsApp control.
-WhatsApp remains safely unconnected until a public business number is supplied.
-Legal panels are explicitly previews until official business and contact details are confirmed.
-Logo colour preserved exactly as supplied.
-Languages: English, Finnish, Swedish and Indonesian.
-Built: 2026-07-30
+BALAI Premium V8.6 — Insights Article 02
+Article 02: The New Travel Gatekeeper.
+Published locally in English, Finnish, Swedish and Indonesian.
+Article 02 is featured on the homepage and Insights hub; Article 01 remains available in the archive.
+Includes multilingual metadata, structured data, source attribution and social-sharing graphics.
+Insights remain photo-free.
+Built: 2026-08-01

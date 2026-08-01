@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5ecdf"/><rect width="390" height="630" fill="#2e4a3e"/>
+  <circle cx="1100" cy="-20" r="245" fill="none" stroke="#a65338" stroke-opacity=".18" stroke-width="2"/><circle cx="195" cy="315" r="128" fill="none" stroke="#edb099" stroke-opacity=".28" stroke-width="2"/>
+  <text x="64" y="92" fill="#edb099" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5">BALAI-NÄKEMYKSET</text><text x="64" y="405" fill="#edb099" font-family="Georgia, serif" font-size="190">02</text>
+  <text x="455" y="118" fill="#a65338" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="4">MATKAILUN LÖYDETTÄVYYS · TEKOÄLY · LAPPI</text>
+  <text x="455" y="255" fill="#171715" font-family="Georgia, serif" font-size="72"><tspan x="455" dy="0">Matkailun uusi</tspan><tspan x="455" dy="82">portinvartija</tspan></text>
+  <line x1="455" y1="448" x2="1132" y2="448" stroke="#171715" stroke-opacity=".18"/><text x="455" y="500" fill="#625b55" font-family="Arial, sans-serif" font-size="20">Kun tekoäly muovaa valintalistaa, löytääkö se Lapin tuotteesi?</text><text x="455" y="566" fill="#765548" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">1. ELOKUUTA 2026 · 6 MIN</text>
+</svg>
