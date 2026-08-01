@@ -1,5 +1,7 @@
 
 /* BALAI Premium V6.4 — final multilingual market-access edition */
+@font-face{font-family:"DM Sans";font-style:normal;font-display:swap;font-weight:100 1000;src:url("../fonts/dm-sans-latin-variable.woff2") format("woff2-variations")}
+@font-face{font-family:"Libre Caslon Display";font-style:normal;font-display:swap;font-weight:400;src:url("../fonts/libre-caslon-display-latin-400.woff2") format("woff2")}
 :root{
   --cream:#f5ecdf;--paper:#fffaf3;--peach:#edb099;--peach-soft:#f5d3c5;
   --sage:#2e4a3e;--sage-2:#3b5a4c;--ink:#171715;--muted:#6d6761;
@@ -19,6 +21,7 @@ body:before{content:"";position:fixed;inset:0;z-index:1000;pointer-events:none;o
 .eyebrow{margin:0 0 16px;color:#925039;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
 .eyebrow--light{color:#b9c8c0}.eyebrow--peach{color:#f4bba4}
 :focus-visible{outline:2px solid var(--rust);outline-offset:4px}
+main:focus{outline:none}
 
 /* Header */
 .site-header{position:fixed;inset:0 0 auto;z-index:80;border-bottom:1px solid transparent;transition:.3s ease;isolation:isolate}

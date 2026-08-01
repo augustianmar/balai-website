@@ -10,7 +10,6 @@
 .home-insights-preview{
   position:relative;
   overflow:hidden;
-  scroll-margin-top:86px;
   padding:96px 0;
   background:
     radial-gradient(circle at 92% 15%,rgba(237,176,153,.35),transparent 25rem),

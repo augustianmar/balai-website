@@ -97,6 +97,16 @@
   const serviceSlug = path.match(/\/services\/([^/]+)/)?.[1] || '';
   const languagePrefix = language === 'en' ? '' : `${language}/`;
 
+  /* Move keyboard focus as well as the viewport when the skip link is used. */
+  const skipLink = document.querySelector('.skip-link');
+  skipLink?.addEventListener('click', () => {
+    const targetId = skipLink.getAttribute('href')?.replace(/^#/, '');
+    const target = targetId ? document.getElementById(targetId) : null;
+    if (!target) return;
+    target.setAttribute('tabindex', '-1');
+    window.setTimeout(() => target.focus({ preventScroll: true }), 0);
+  });
+
   const navigationScript = document.currentScript?.src;
   const siteRoot = navigationScript
     ? new URL('../../', navigationScript)
