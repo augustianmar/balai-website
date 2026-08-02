@@ -26,6 +26,18 @@
     sv: 'BALAI:s direkta kontaktkanaler förbereds. Välkommen tillbaka inom kort.',
     id: 'Saluran kontak langsung BALAI sedang dipersiapkan. Silakan kembali dalam waktu dekat.'
   };
+  const menuLabels = {
+    en: {open: 'Open menu', close: 'Close menu'},
+    fi: {open: 'Avaa valikko', close: 'Sulje valikko'},
+    sv: {open: 'Öppna meny', close: 'Stäng meny'},
+    id: {open: 'Buka menu', close: 'Tutup menu'}
+  };
+  const menuLabel = menuLabels[language] || menuLabels.en;
+
+  if (menuToggle && mobilePanel) {
+    mobilePanel.id ||= 'mobile-navigation';
+    menuToggle.setAttribute('aria-controls', mobilePanel.id);
+  }
 
   body.classList.toggle('contact-ready', contactReady);
   body.classList.toggle('whatsapp-ready', Boolean(whatsappNumber));
@@ -57,12 +69,15 @@
   const closeMenu = () => {
     mobilePanel?.classList.remove('is-open');
     menuToggle?.setAttribute('aria-expanded','false');
+    menuToggle?.setAttribute('aria-label', menuLabel.open);
     body.classList.remove('menu-open');
   };
+  menuToggle?.setAttribute('aria-label', menuLabel.open);
   menuToggle?.addEventListener('click', () => {
     const open = !mobilePanel?.classList.contains('is-open');
     mobilePanel?.classList.toggle('is-open', open);
     menuToggle?.setAttribute('aria-expanded', String(open));
+    menuToggle?.setAttribute('aria-label', open ? menuLabel.close : menuLabel.open);
     body.classList.toggle('menu-open', open);
   });
   mobilePanel?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));

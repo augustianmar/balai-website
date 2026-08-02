@@ -1,7 +1,7 @@
-BALAI Premium V8.6 — Insights Article 02
-Article 02: The New Travel Gatekeeper.
-Published locally in English, Finnish, Swedish and Indonesian.
-Article 02 is featured on the homepage and Insights hub; Article 01 remains available in the archive.
-Includes multilingual metadata, structured data, source attribution and social-sharing graphics.
-Insights remain photo-free.
-Built: 2026-08-01
+BALAI Premium V8.7 — Android Mobile Menu Refinement
+Replaces the generic circular mobile control with a right-aligned BALAI capsule.
+Includes localized Menu/Close labels in English, Finnish, Swedish and Indonesian.
+Adds a refined menu-to-close animation, a clear active state and accessible 44px touch sizing.
+Improves the open panel's mobile scrolling, backdrop and visual connection to the header.
+Includes all earlier website improvements and both Insights articles.
+Built: 2026-08-02
