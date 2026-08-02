@@ -1,8 +1,7 @@
-BALAI Premium V8.8 — Full-Viewport Mobile Navigation
-Replaces the clipped Android scroll panel with a true viewport-level expansion.
-Displays all six website sections simultaneously in a designed 2 × 3 navigation grid.
-Includes the language selector and contact action without internal menu scrolling.
-Adds a circular reveal, staggered tile entrance and highlighted current section.
-Fixes the Android Insights-page containing-block issue caused by the blurred fixed header.
-Includes all earlier website improvements and both Insights articles.
+BALAI Premium V8.9 — Cross-Platform Table Alignment
+Introduces a strict shared rhythm for the homepage deliverables and process tables.
+Aligns dividers, heading starts and text blocks across desktop columns.
+Removes text-height-driven bottom alignment from the four-step process table.
+Preserves balanced spacing when the tables stack on Android and Apple devices.
+Includes the V8.8 full-viewport mobile navigation and all earlier improvements.
 Built: 2026-08-02

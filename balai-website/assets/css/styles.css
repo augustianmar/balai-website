@@ -618,3 +618,39 @@ body:not(.whatsapp-ready) .whatsapp-float{display:none}
   .mobile-panel nav>button,
   .mobile-panel nav>a.button{min-height:48px;padding-inline:19px}
 }
+
+/* BALAI Premium V8.9 — aligned table rhythm across all viewports */
+.delivery-stage{
+  min-height:440px;
+  display:grid;
+  grid-template-rows:auto repeat(2,minmax(min-content,1fr));
+}
+.delivery-stage>span{margin-bottom:44px}
+.deliverable{
+  min-width:0;
+  margin:0;
+  padding-top:24px;
+  align-content:start;
+}
+.deliverable+.deliverable{margin-top:0}
+.deliverable h3{
+  min-height:2.16em;
+  margin:0 0 10px;
+}
+.step h3{
+  margin:clamp(68px,7vw,96px) 0 12px;
+}
+
+.direction-card{
+  min-width:0;
+}
+.direction-card :where(h3,p,li){
+  overflow-wrap:anywhere;
+}
+
+@media(max-width:760px){
+  .delivery-stage{min-height:440px;padding:25px}
+  .delivery-stage>span{margin-bottom:34px}
+  .deliverable{padding-top:20px}
+  .step h3{margin-top:68px}
+}
