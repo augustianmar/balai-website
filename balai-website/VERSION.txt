@@ -1,7 +1,8 @@
-BALAI Premium V8.7 — Android Mobile Menu Refinement
-Replaces the generic circular mobile control with a right-aligned BALAI capsule.
-Includes localized Menu/Close labels in English, Finnish, Swedish and Indonesian.
-Adds a refined menu-to-close animation, a clear active state and accessible 44px touch sizing.
-Improves the open panel's mobile scrolling, backdrop and visual connection to the header.
+BALAI Premium V8.8 — Full-Viewport Mobile Navigation
+Replaces the clipped Android scroll panel with a true viewport-level expansion.
+Displays all six website sections simultaneously in a designed 2 × 3 navigation grid.
+Includes the language selector and contact action without internal menu scrolling.
+Adds a circular reveal, staggered tile entrance and highlighted current section.
+Fixes the Android Insights-page containing-block issue caused by the blurred fixed header.
 Includes all earlier website improvements and both Insights articles.
 Built: 2026-08-02

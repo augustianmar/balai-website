@@ -37,6 +37,10 @@
   if (menuToggle && mobilePanel) {
     mobilePanel.id ||= 'mobile-navigation';
     menuToggle.setAttribute('aria-controls', mobilePanel.id);
+    mobilePanel.setAttribute('aria-hidden', 'true');
+    /* Keep the full-screen menu outside the blurred fixed header. Android
+       otherwise treats the header as the panel's containing block. */
+    body.appendChild(mobilePanel);
   }
 
   body.classList.toggle('contact-ready', contactReady);
@@ -68,6 +72,7 @@
 
   const closeMenu = () => {
     mobilePanel?.classList.remove('is-open');
+    mobilePanel?.setAttribute('aria-hidden', 'true');
     menuToggle?.setAttribute('aria-expanded','false');
     menuToggle?.setAttribute('aria-label', menuLabel.open);
     body.classList.remove('menu-open');
@@ -76,11 +81,15 @@
   menuToggle?.addEventListener('click', () => {
     const open = !mobilePanel?.classList.contains('is-open');
     mobilePanel?.classList.toggle('is-open', open);
+    mobilePanel?.setAttribute('aria-hidden', String(!open));
     menuToggle?.setAttribute('aria-expanded', String(open));
     menuToggle?.setAttribute('aria-label', open ? menuLabel.close : menuLabel.open);
     body.classList.toggle('menu-open', open);
+    if (open) window.setTimeout(() => mobilePanel?.querySelector('nav > a')?.focus(), 220);
   });
-  mobilePanel?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobilePanel?.addEventListener('click', event => {
+    if (event.target.closest?.('a')) closeMenu();
+  });
 
   const setSelectValue = (name, value) => {
     if (!form || !value || !form.elements[name]) return;
@@ -159,7 +168,20 @@
 
 
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { closeLegal(); closeModal(); closeMenu(); }
+    if (event.key === 'Escape') {
+      const menuWasOpen = mobilePanel?.classList.contains('is-open');
+      closeLegal(); closeModal(); closeMenu();
+      if (menuWasOpen) window.setTimeout(() => menuToggle?.focus(), 0);
+    }
+
+    if (event.key === 'Tab' && mobilePanel?.classList.contains('is-open')) {
+      const focusable = [menuToggle, ...mobilePanel.querySelectorAll('a[href],button')]
+        .filter(el => el && !el.disabled && el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
 
     if (event.key === 'Tab' && legalModal?.classList.contains('is-open')) {
       const focusable = [...legalModal.querySelectorAll('button,a[href]')].filter(el => !el.disabled && el.offsetParent !== null);

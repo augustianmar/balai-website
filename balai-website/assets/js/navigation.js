@@ -1,7 +1,7 @@
 (() => {
   const translations = {
     en: {
-      home: 'Home', markets: 'Markets', services: 'Services', approach: 'Approach', insights: 'Insights', founder: 'Founder', explore: 'EXPLORE',
+      home: 'Home', markets: 'Markets', services: 'Services', approach: 'Approach', insights: 'Insights', founder: 'Founder', explore: 'EXPLORE', language: 'Language',
       insightsEyebrow: 'BALAI INSIGHTS',
       insightsTitle: 'Market knowledge, made commercially useful.',
       insightsIntro: 'Focused observations for tourism companies that need clearer market signals, stronger partner decisions and practical routes forward.',
@@ -13,7 +13,7 @@
       chainStages: ['Traveller question', 'AI-assisted shortlist', 'Trusted travel brand', 'Travel-trade partner', 'Lapland supplier']
     },
     fi: {
-      home: 'Etusivu', markets: 'Markkinat', services: 'Palvelut', approach: 'Toimintatapa', insights: 'Näkemykset', founder: 'Perustaja', explore: 'TUTUSTU',
+      home: 'Etusivu', markets: 'Markkinat', services: 'Palvelut', approach: 'Toimintatapa', insights: 'Näkemykset', founder: 'Perustaja', explore: 'TUTUSTU', language: 'Kieli',
       insightsEyebrow: 'BALAI-NÄKEMYKSET',
       insightsTitle: 'Markkinatietoa, josta on kaupallista hyötyä.',
       insightsIntro: 'Tarkennettuja havaintoja matkailuyrityksille, jotka tarvitsevat selkeämpiä markkinasignaaleja, parempia kumppanipäätöksiä ja käytännöllisiä etenemisreittejä.',
@@ -25,7 +25,7 @@
       chainStages: ['Matkailijan kysymys', 'Tekoälyn muodostama valikoima', 'Luotettu matkailubrändi', 'Matkailualan kumppani', 'Lapin palveluntarjoaja']
     },
     sv: {
-      home: 'Hem', markets: 'Marknader', services: 'Tjänster', approach: 'Arbetssätt', insights: 'Insikter', founder: 'Grundare', explore: 'UTFORSKA',
+      home: 'Hem', markets: 'Marknader', services: 'Tjänster', approach: 'Arbetssätt', insights: 'Insikter', founder: 'Grundare', explore: 'UTFORSKA', language: 'Språk',
       insightsEyebrow: 'BALAI INSIKTER',
       insightsTitle: 'Marknadskunskap, gjord kommersiellt användbar.',
       insightsIntro: 'Fokuserade observationer för turismföretag som behöver tydligare marknadssignaler, bättre partnerbeslut och praktiska vägar framåt.',
@@ -37,7 +37,7 @@
       chainStages: ['Resenärens fråga', 'AI-format urval', 'Betrott resevarumärke', 'Resebranschpartner', 'Leverantör i Lappland']
     },
     id: {
-      home: 'Beranda', markets: 'Pasar', services: 'Layanan', approach: 'Pendekatan', insights: 'Wawasan', founder: 'Pendiri', explore: 'JELAJAHI',
+      home: 'Beranda', markets: 'Pasar', services: 'Layanan', approach: 'Pendekatan', insights: 'Wawasan', founder: 'Pendiri', explore: 'JELAJAHI', language: 'Bahasa',
       insightsEyebrow: 'WAWASAN BALAI',
       insightsTitle: 'Pengetahuan pasar yang berguna secara komersial.',
       insightsIntro: 'Pengamatan terarah bagi perusahaan pariwisata yang membutuhkan sinyal pasar lebih jelas, keputusan mitra lebih kuat, dan jalur maju yang praktis.',
@@ -230,10 +230,12 @@
 
   const mobileNav = document.querySelector('[data-mobile-panel] nav');
   if (mobileNav) {
+    const mobileLanguageLabel = mobileNav.querySelector('.mobile-language-row > span');
+    if (mobileLanguageLabel) mobileLanguageLabel.textContent = copy.language;
     [...mobileNav.children]
-      .filter(child => child.matches('a'))
+      .filter(child => child.matches('a:not(.button)'))
       .forEach(child => child.remove());
-    const reference = mobileNav.querySelector('.mobile-language-row, button');
+    const reference = mobileNav.querySelector('.mobile-language-row, button, a.button');
     buildLinks(true).forEach(link => mobileNav.insertBefore(link, reference || null));
   }
 
