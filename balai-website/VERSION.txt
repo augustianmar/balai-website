@@ -1,7 +1,8 @@
-BALAI Premium V9.1 — Corrected Hero-Card Hierarchy
-Replaces the oversized side-by-side market names with a stable editorial composition.
-Uses one clear central promise, a compact two-way market route and three concise stages.
-Prevents arbitrary word splitting at every responsive width.
+BALAI Premium V9.2 — Measured Final Hero Card
+Restores the BALAI logo as the central brand anchor.
+Uses a purpose-drawn two-way vector instead of disconnected lines around a glyph.
+Calibrates the card to a 575 px desktop system with measured header, core, route and outcome rows.
+Enforces equal two-line rhythm across all three commercial stages.
 Includes complete English, Finnish, Swedish and Indonesian localisation.
 Preserves the V8.9 table alignment, full-screen mobile navigation and all earlier improvements.
 Built: 2026-08-18
