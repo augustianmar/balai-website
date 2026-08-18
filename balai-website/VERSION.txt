@@ -1,8 +1,8 @@
-BALAI Premium V9.2 — Measured Final Hero Card
-Restores the BALAI logo as the central brand anchor.
-Uses a purpose-drawn two-way vector instead of disconnected lines around a glyph.
-Calibrates the card to a 575 px desktop system with measured header, core, route and outcome rows.
-Enforces equal two-line rhythm across all three commercial stages.
+BALAI Premium V9.3 — Direction Gateway Hero Card
+Replaces the repetitive hero diagram with a useful market-direction gateway.
+Makes both commercial directions fully clickable and links each to its matching direction card.
+Adds a dedicated route to the complete six-service portfolio.
+Enlarges the BALAI logo and recalibrates the card for desktop, tablet and mobile layouts.
 Includes complete English, Finnish, Swedish and Indonesian localisation.
 Preserves the V8.9 table alignment, full-screen mobile navigation and all earlier improvements.
 Built: 2026-08-18

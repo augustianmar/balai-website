@@ -1,4 +1,4 @@
-BALAI PREMIUM V9.2 — MEASURED FINAL HERO CARD
+BALAI PREMIUM V9.3 — DIRECTION GATEWAY HERO CARD
 Built: 18 August 2026
 
 INSTALLATION
@@ -8,12 +8,12 @@ INSTALLATION
 4. Wait briefly for GitHub Pages to rebuild.
 5. Refresh with Ctrl + F5 if the older design remains cached.
 
-WHAT CHANGED IN V9.2
-- The BALAI logo is restored as the central brand anchor.
-- The route now uses one purpose-drawn two-way vector with no detached side lines.
-- Header, logo, headline, route and outcome areas use a measured vertical system.
-- All three lower captions occupy the same two-line rhythm.
-- Market names remain compact and protected from arbitrary letter splitting.
+WHAT CHANGED IN V9.3
+- The right-side hero card now helps visitors choose instead of repeating the left-side description.
+- Both market-direction rows are fully clickable and lead to the matching direction card.
+- A separate link leads directly to the complete six-service portfolio.
+- The BALAI logo is larger and the card uses a balanced, measured vertical system.
+- Desktop, tablet and mobile sizes have dedicated spacing and typography adjustments.
 - English, Finnish, Swedish and Indonesian versions are included.
 
 THIS IS A CUMULATIVE PACKAGE
