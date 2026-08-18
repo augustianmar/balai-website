@@ -1,21 +1,19 @@
-BALAI PREMIUM V6.7 — CONTACT & LEGAL VISUAL SHELL
+BALAI PREMIUM V9.0 — TWO-MARKET HERO CORRIDOR
+Built: 18 August 2026
 
 INSTALLATION
-1. Open GitHub Desktop > Repository > Show in Explorer.
-2. Open the existing inner balai-website folder containing index.html.
-3. Extract this ZIP and open the extracted folder.
-4. Select EVERYTHING inside the extracted folder.
-5. Copy it directly into the existing inner balai-website folder.
-6. Choose Replace / Merge all.
-7. Commit to main and Push origin.
-8. Refresh the live site with Ctrl + F5 after deployment.
+1. Extract the ZIP.
+2. Replace the existing balai-website folder in your GitHub repository with the balai-website folder from the ZIP.
+3. Commit the replacement and push it to GitHub.
+4. Wait briefly for GitHub Pages to rebuild.
+5. Refresh with Ctrl + F5 if the older design remains cached.
 
-CURRENT STATUS
-- Footer ownership wording is active in all four languages.
-- Privacy Policy and Website Terms selectors open honest visual preview panels.
-- The floating WhatsApp control is fully designed and responsive.
-- With whatsappNumber left empty in assets/js/config.js, selecting WhatsApp shows a clear availability notice.
-- Later, add the public number in international format without spaces or symbols:
-  whatsappNumber: "358..."
-- Final legal wording still requires BALAI's confirmed legal entity, Business ID and official contact details.
-- The BALAI logo colour has not been changed.
+WHAT CHANGED IN V9.0
+- The pink homepage card is now a functional two-market diagram.
+- Finland and Indonesia–Southeast Asia have equal visual weight.
+- BALAI's two-way connecting role is immediately visible.
+- Three concise outcomes replace repetitive decorative messaging.
+- English, Finnish, Swedish and Indonesian versions are included.
+
+THIS IS A CUMULATIVE PACKAGE
+It includes the V8.9 table alignment, the full-screen mobile navigation, both published Insights articles and all earlier website improvements.

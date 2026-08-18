@@ -1,7 +1,7 @@
-BALAI Premium V8.9 — Cross-Platform Table Alignment
-Introduces a strict shared rhythm for the homepage deliverables and process tables.
-Aligns dividers, heading starts and text blocks across desktop columns.
-Removes text-height-driven bottom alignment from the four-step process table.
-Preserves balanced spacing when the tables stack on Android and Apple devices.
-Includes the V8.8 full-viewport mobile navigation and all earlier improvements.
-Built: 2026-08-02
+BALAI Premium V9.0 — Two-Market Hero Corridor
+Rebuilds the pink homepage card as a clear, functional two-market diagram.
+Gives Finland and Indonesia–Southeast Asia equal visual weight around BALAI.
+Replaces repeated brand decoration with three concise commercial outcomes.
+Includes complete English, Finnish, Swedish and Indonesian localisation.
+Preserves the V8.9 table alignment, full-screen mobile navigation and all earlier improvements.
+Built: 2026-08-18
