@@ -1,4 +1,4 @@
-BALAI PREMIUM V9.0 — INSTALLATION
+BALAI PREMIUM V9.1 — INSTALLATION
 
 1. Extract the update ZIP.
 2. Replace the existing balai-website folder in your GitHub repository with the balai-website folder from the ZIP.
